@@ -72,10 +72,6 @@ const Hero = () => {
 
       <Grid>
         <Coluna>
-          <Kicker>
-            <span /> Empresa especializada · Setor público e privado
-          </Kicker>
-
           <Titulo>
             Comunicação visual gerenciada para empresas, instituições,{" "}
             <AcentoAmarelo>anunciantes</AcentoAmarelo> e órgãos públicos.

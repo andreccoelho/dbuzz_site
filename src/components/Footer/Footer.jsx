@@ -1,16 +1,10 @@
 import { Link } from "react-router-dom";
 import { Mail, MapPin, Instagram } from "lucide-react";
+import { scrollTo } from "../../utils/scroll";
 import {
   Rodape, Container, ColunaLogo, Logo, TextoMarca, Colunas, Coluna, Titulo,
   Lista, Linha, Inferior, LinkPrivacidade, BotaoTopo,
 } from "./Style";
-
-const scrollTo = (id) => {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const top = el.getBoundingClientRect().top + window.scrollY - 70;
-  window.scrollTo({ top, behavior: "smooth" });
-};
 
 const NavLink = ({ id, children }) => (
   <a href={`#${id}`} onClick={(e) => { e.preventDefault(); scrollTo(id); }}>

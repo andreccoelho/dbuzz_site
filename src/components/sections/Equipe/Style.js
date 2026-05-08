@@ -74,7 +74,7 @@ export const Avatar = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.7rem;
+  color: #fff;
   margin: 0 auto 0.9rem;
 `;
 
@@ -140,9 +140,9 @@ export const IgPlaceholder = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
   background: var(--cinza-100);
   border: 1px solid var(--cinza-200);
+  color: ${theme.cores.sub};
 `;
 
 export const IgBtn = styled.a`

@@ -1,4 +1,5 @@
 import { Briefcase, Landmark, Tv, ArrowRight } from "lucide-react";
+import { scrollTo } from "../../../utils/scroll";
 import {
   Secao, Container, Cabecalho, Kicker, Titulo, Lead, Grid, Card, CardTopo,
   CardCorpo, IconeBox, Subtitulo, Lista, ItemLista, CardLink,
@@ -99,7 +100,11 @@ const Solucoes = () => (
                   <small className="nota-juridica">{f.notaJuridica}</small>
                 )}
 
-                <CardLink href={f.href} $cor={f.cor}>
+                <CardLink
+                  href={f.href}
+                  $cor={f.cor}
+                  onClick={(e) => { e.preventDefault(); scrollTo(f.href.slice(1)); }}
+                >
                   {f.cta} <ArrowRight size={16} />
                 </CardLink>
               </CardCorpo>

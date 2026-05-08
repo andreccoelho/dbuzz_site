@@ -102,7 +102,7 @@ const Titulo = styled.h1`
   margin-bottom: 20px;
   animation: ${entradaSobe} 0.6s cubic-bezier(0.22,1,0.36,1) both 80ms;
 
-  @media (max-width: 640px) { margin-bottom: 16px; }
+  @media (max-width: 640px) { margin-bottom: 16px; font-size: 38px; }
 `;
 
 const AcentoAmarelo = styled.span`
@@ -288,10 +288,10 @@ const LinksSecundarios = styled.div`
   }
 
   @media (max-width: 640px) {
-    flex-direction: column;
     align-items: flex-start;
     gap: 8px;
     margin-bottom: 32px;
+    font-size: 0.72rem;
   }
 `;
 
