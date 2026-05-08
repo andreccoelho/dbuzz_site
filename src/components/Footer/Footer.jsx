@@ -5,6 +5,19 @@ import {
   Lista, Linha, Inferior, LinkPrivacidade, BotaoTopo,
 } from "./Style";
 
+const scrollTo = (id) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - 70;
+  window.scrollTo({ top, behavior: "smooth" });
+};
+
+const NavLink = ({ id, children }) => (
+  <a href={`#${id}`} onClick={(e) => { e.preventDefault(); scrollTo(id); }}>
+    {children}
+  </a>
+);
+
 const Footer = () => {
   const ano = new Date().getFullYear();
 
@@ -13,10 +26,7 @@ const Footer = () => {
       <Container>
         <ColunaLogo>
           <Logo>
-            <img
-              src="/imagens/logo-1.png"
-              alt="D.Buzz Corporate"
-            />
+            <img src="/imagens/logo-1.png" alt="D.Buzz Corporate" />
           </Logo>
           <TextoMarca>
             Comunicação presencial gerenciada para empresas, instituições, anunciantes e órgãos
@@ -28,20 +38,20 @@ const Footer = () => {
           <Coluna>
             <Titulo>Soluções</Titulo>
             <Lista>
-              <li><a href="#solucoes">Setor Privado</a></li>
-              <li><a href="#setor-publico">Setor Público</a></li>
-              <li><a href="#tv-dbuzz">TV D.Buzz</a></li>
-              <li><a href="#aplicacoes">Aplicações</a></li>
+              <li><NavLink id="solucoes">Setor Privado</NavLink></li>
+              <li><NavLink id="setor-publico">Setor Público</NavLink></li>
+              <li><NavLink id="tv-dbuzz">TV D.Buzz</NavLink></li>
+              <li><NavLink id="aplicacoes">Aplicações</NavLink></li>
             </Lista>
           </Coluna>
 
           <Coluna>
             <Titulo>Empresa</Titulo>
             <Lista>
-              <li><a href="#sobre">Sobre a D.Buzz</a></li>
-              <li><a href="#governanca">Governança</a></li>
-              <li><a href="#portfolio">Portfólio</a></li>
-              <li><a href="#contato">Contato</a></li>
+              <li><NavLink id="sobre">Sobre a D.Buzz</NavLink></li>
+              <li><NavLink id="governanca">Governança</NavLink></li>
+              <li><NavLink id="portfolio">Portfólio</NavLink></li>
+              <li><NavLink id="contato">Contato</NavLink></li>
             </Lista>
           </Coluna>
 
@@ -82,7 +92,12 @@ const Footer = () => {
         </span>
         <span>© {ano} D.Buzz Corporate. Todos os direitos reservados.</span>
         <LinkPrivacidade to="/privacidade">Política de Privacidade</LinkPrivacidade>
-        <BotaoTopo href="#inicio">Topo ↑</BotaoTopo>
+        <BotaoTopo
+          href="#inicio"
+          onClick={(e) => { e.preventDefault(); scrollTo("inicio"); }}
+        >
+          Topo ↑
+        </BotaoTopo>
       </Inferior>
     </Rodape>
   );

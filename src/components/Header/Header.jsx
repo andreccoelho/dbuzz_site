@@ -3,14 +3,22 @@ import { Menu, X } from "lucide-react";
 import { Nav, Container, LogoLink, MenuLista, ItemMenu, BotaoCta, MenuMobile, Backdrop } from "./Style";
 
 const links = [
-  { href: "#sobre", label: "Sobre" },
-  { href: "#solucoes", label: "Soluções" },
-  { href: "#aplicacoes", label: "Aplicações" },
-  { href: "#setor-publico", label: "Setor Público" },
-  { href: "#tv-dbuzz", label: "TV D.Buzz" },
-  { href: "#portfolio", label: "Portfólio" },
-  { href: "#governanca", label: "Governança" },
+  { id: "sobre",        label: "Sobre" },
+  { id: "solucoes",     label: "Soluções" },
+  { id: "aplicacoes",   label: "Aplicações" },
+  { id: "setor-publico",label: "Setor Público" },
+  { id: "tv-dbuzz",     label: "TV D.Buzz" },
+  { id: "portfolio",    label: "Portfólio" },
+  { id: "governanca",   label: "Governança" },
 ];
+
+const scrollTo = (id) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const offset = 70;
+  const top = el.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top, behavior: "smooth" });
+};
 
 const Header = () => {
   const [aberto, setAberto] = useState(false);
@@ -24,25 +32,41 @@ const Header = () => {
 
   const fechar = () => setAberto(false);
 
+  const handleLink = (id) => {
+    scrollTo(id);
+    fechar();
+  };
+
   return (
     <Nav $scrolled={scrolled}>
       <Container $scrolled={scrolled}>
-        <LogoLink href="#inicio" onClick={fechar} aria-label="D.Buzz Corporate — Início">
-          <img
-            src="/imagens/logo-1.png"
-            alt="D.Buzz Corporate"
-          />
+        <LogoLink
+          href="#"
+          onClick={(e) => { e.preventDefault(); scrollTo("inicio"); fechar(); }}
+          aria-label="D.Buzz Corporate — Início"
+        >
+          <img src="/imagens/logo-1.png" alt="D.Buzz Corporate" />
         </LogoLink>
 
         <MenuLista $aberto={aberto}>
           {links.map((l) => (
-            <ItemMenu key={l.href}>
-              <a href={l.href} onClick={fechar}>{l.label}</a>
+            <ItemMenu key={l.id}>
+              <a
+                href={`#${l.id}`}
+                onClick={(e) => { e.preventDefault(); handleLink(l.id); }}
+              >
+                {l.label}
+              </a>
             </ItemMenu>
           ))}
         </MenuLista>
 
-        <BotaoCta href="#contato" onClick={fechar}>Fale conosco</BotaoCta>
+        <BotaoCta
+          href="#contato"
+          onClick={(e) => { e.preventDefault(); handleLink("contato"); }}
+        >
+          Fale conosco
+        </BotaoCta>
 
         <MenuMobile
           onClick={() => setAberto((v) => !v)}
