@@ -3,10 +3,10 @@ import { theme } from "../../../styles/theme";
 
 export const Wrapper = styled.section`
   background: ${theme.cores.bg};
-  padding: 5rem 5vw;
+  padding: 5rem clamp(16px, 5vw, 5rem);
 
   @media (max-width: ${theme.breakpoints.mobile}) {
-    padding: 3.5rem 5vw;
+    padding: 3.5rem 16px;
   }
 `;
 
@@ -126,8 +126,12 @@ export const IgGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.45rem;
-  max-width: 480px;
+  max-width: 400px;
   margin: 0 auto 1.4rem;
+
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    max-width: 100%;
+  }
 `;
 
 export const IgPlaceholder = styled.div`
@@ -144,6 +148,7 @@ export const IgPlaceholder = styled.div`
 export const IgBtn = styled.a`
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background: ${theme.cores.amarelo};
   color: #000;
@@ -152,11 +157,16 @@ export const IgBtn = styled.a`
   font-family: ${theme.fontes.titulo};
   font-weight: 700;
   font-size: 0.88rem;
+  min-height: 44px;
   transition: background 0.2s, color 0.2s;
   text-decoration: none;
 
   &:hover {
     background: #000;
     color: var(--amarelo);
+  }
+
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    width: 100%;
   }
 `;

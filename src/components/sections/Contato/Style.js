@@ -3,10 +3,10 @@ import { theme } from "../../../styles/theme";
 
 export const Wrapper = styled.section`
   background: #000;
-  padding: 5rem 5vw;
+  padding: 5rem clamp(16px, 5vw, 5rem);
 
   @media (max-width: ${theme.breakpoints.mobile}) {
-    padding: 3.5rem 5vw;
+    padding: 3.5rem 16px;
   }
 `;
 
@@ -84,14 +84,18 @@ export const CardDesc = styled.p`
 `;
 
 export const Btn = styled.a`
-  display: inline-block;
-  padding: 0.62rem 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.72rem 1.2rem;
   border-radius: ${theme.raio.sm};
   font-family: ${theme.fontes.titulo};
   font-weight: 700;
   font-size: 0.84rem;
+  min-height: 44px;
   transition: background 0.2s, color 0.2s;
   text-decoration: none;
+  width: 100%;
 
   ${({ $tipo }) =>
     $tipo === "ghost"

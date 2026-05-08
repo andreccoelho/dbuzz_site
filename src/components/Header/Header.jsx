@@ -39,7 +39,7 @@ const Header = () => {
 
   return (
     <Nav $scrolled={scrolled}>
-      <Container $scrolled={scrolled}>
+      <Container>
         <LogoLink
           href="#"
           onClick={(e) => { e.preventDefault(); scrollTo("inicio"); fechar(); }}

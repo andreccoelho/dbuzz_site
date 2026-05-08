@@ -8,10 +8,10 @@ const barAnim = keyframes`
 
 export const Wrapper = styled.section`
   background: #000;
-  padding: 5rem 5vw;
+  padding: 5rem clamp(16px, 5vw, 5rem);
 
   @media (max-width: ${theme.breakpoints.mobile}) {
-    padding: 3.5rem 5vw;
+    padding: 3.5rem 16px;
   }
 `;
 

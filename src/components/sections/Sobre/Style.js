@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 const Secao = styled.section`
-  padding: 120px 24px;
+  padding: 100px 24px;
   background: var(--bg);
 
   @media (max-width: 900px) {
-    padding: 80px 18px;
+    padding: 72px 20px;
+  }
+
+  @media (max-width: 640px) {
+    padding: 56px 16px;
   }
 `;
 
@@ -16,48 +20,57 @@ const Container = styled.div`
 
 const Cabecalho = styled.header`
   max-width: 820px;
-  margin: 0 auto 72px;
+  margin: 0 auto 64px;
 
   @media (max-width: 900px) {
     margin-bottom: 48px;
+    text-align: left;
+  }
+
+  @media (max-width: 640px) {
+    margin-bottom: 36px;
   }
 `;
 
 const Kicker = styled.span`
   display: inline-block;
   font-family: var(--fonte-corpo);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--amarelo);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 `;
 
 const Titulo = styled.h2`
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin-bottom: 20px;
+  font-size: clamp(1.75rem, 4vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin-bottom: 18px;
 `;
 
 const Lead = styled.p`
-  font-size: 1.15rem;
-  line-height: 1.55;
-  color: var(--texto);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--sub);
   font-weight: 400;
+
+  @media (max-width: 640px) {
+    font-size: 0.95rem;
+  }
 `;
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: 64px;
-  margin-bottom: 80px;
+  gap: 56px;
+  margin-bottom: 72px;
 
   @media (max-width: 1000px) {
     grid-template-columns: 1fr;
-    gap: 40px;
-    margin-bottom: 56px;
+    gap: 36px;
+    margin-bottom: 48px;
   }
 `;
 
@@ -82,25 +95,31 @@ const Paragrafo = styled.p`
     margin: 4px 10px -2px 0;
     letter-spacing: -0.04em;
   }
+
+  @media (max-width: 640px) {
+    font-size: 0.94rem;
+    max-width: 100%;
+  }
 `;
 
 const MissaoVisao = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 36px;
-  padding-top: 32px;
+  gap: 20px;
+  margin-top: 32px;
+  padding-top: 28px;
   border-top: 1px solid var(--borda);
 
-  @media (max-width: 700px) {
+  @media (max-width: 640px) {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 `;
 
 const MV = styled.div`
   h3 {
     font-family: var(--fonte-titulo);
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--texto);
     margin-bottom: 8px;
@@ -108,7 +127,7 @@ const MV = styled.div`
   }
 
   p {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     color: var(--sub);
     margin: 0;
@@ -117,7 +136,7 @@ const MV = styled.div`
 
 const BlocoDados = styled.div`
   background: #fff;
-  padding: 32px;
+  padding: 28px;
   border-radius: 4px;
   border: 1px solid var(--borda);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -126,19 +145,20 @@ const BlocoDados = styled.div`
 
   @media (max-width: 1000px) {
     position: static;
+    padding: 24px;
   }
 `;
 
 const ItemDado = styled.div`
   display: grid;
   grid-template-columns: 28px 1fr;
-  gap: 14px;
+  gap: 12px;
   align-items: flex-start;
-  padding: 16px 0;
+  padding: 14px 0;
   border-bottom: 1px solid var(--borda);
 
   &:last-child { border-bottom: none; padding-bottom: 0; }
-  &:nth-child(2) { padding-top: 16px; }
+  &:nth-child(2) { padding-top: 14px; }
 
   > svg {
     color: var(--cinza-500);
@@ -147,11 +167,11 @@ const ItemDado = styled.div`
 
   .num-mark {
     font-family: var(--fonte-corpo);
-    font-size: 0.7rem;
-    font-weight: 500;
+    font-size: 0.68rem;
+    font-weight: 600;
     color: #000;
     background: rgba(254, 199, 8, 0.15);
-    padding: 3px 6px;
+    padding: 3px 5px;
     border-radius: 2px;
     margin-top: 2px;
     height: fit-content;
@@ -162,7 +182,7 @@ const ItemDado = styled.div`
     display: block;
     margin-top: 4px;
     font-family: var(--fonte-corpo);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     color: var(--sub);
   }
 
@@ -175,22 +195,22 @@ const ItemDado = styled.div`
 `;
 
 const Rotulo = styled.div`
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--sub);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 `;
 
 const Valor = styled.div`
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
   line-height: 1.45;
   color: var(--texto);
 
   &.num {
-    font-family: var(--fonte-mono);
+    font-family: var(--fonte-corpo);
     font-weight: 500;
     letter-spacing: 0.01em;
   }
@@ -202,7 +222,7 @@ const Valores = styled.div`
 
   > span,
   > div:first-child {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   ul {
@@ -210,8 +230,17 @@ const Valores = styled.div`
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+  }
+
+  @media (max-width: 640px) {
+    padding-top: 36px;
+
+    ul {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
   }
 `;
 
@@ -219,29 +248,29 @@ const ValorPil = styled.li`
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 14px 16px;
+  padding: 12px 14px;
   background: #fff;
   border: 1px solid var(--borda);
   border-radius: 3px;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--texto);
-  transition: border-color 160ms ease, transform 160ms ease;
+  min-height: 48px;
+  transition: border-color 160ms ease;
 
   span {
     flex-shrink: 0;
     font-family: var(--fonte-corpo);
-    font-size: 0.7rem;
-    font-weight: 500;
+    font-size: 0.68rem;
+    font-weight: 600;
     color: #000;
     background: rgba(0, 0, 0, 0.06);
-    padding: 4px 7px;
+    padding: 3px 6px;
     border-radius: 2px;
   }
 
   &:hover {
     border-color: var(--amarelo);
-    transform: translateY(-1px);
   }
 `;
 

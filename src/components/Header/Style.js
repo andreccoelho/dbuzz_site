@@ -6,42 +6,31 @@ const Nav = styled.nav`
   left: 0;
   right: 0;
   z-index: 100;
-  background: transparent;
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-  border-bottom: 1px solid transparent;
-  box-shadow: none;
-  transition:
-    background 400ms ease,
-    border-color 400ms ease,
-    box-shadow 400ms ease,
-    backdrop-filter 400ms ease,
-    -webkit-backdrop-filter 400ms ease;
+  background: #000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: box-shadow 400ms ease, backdrop-filter 400ms ease, -webkit-backdrop-filter 400ms ease;
 
   ${({ $scrolled }) =>
     $scrolled &&
     css`
-      background: rgba(0, 0, 0, 0.88);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom-color: rgba(255, 255, 255, 0.07);
-      box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.04) inset,
-        0 8px 32px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     `}
 `;
 
 const Container = styled.div`
   max-width: 1280px;
   margin: 0 auto;
-  padding: ${({ $scrolled }) => ($scrolled ? "10px 24px" : "18px 24px")};
+  height: 64px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   gap: 28px;
-  transition: padding 400ms ease;
 
   @media (max-width: 900px) {
-    padding: ${({ $scrolled }) => ($scrolled ? "10px 18px" : "16px 18px")};
+    height: 58px;
+    padding: 0 18px;
     gap: 12px;
   }
 `;
@@ -52,7 +41,7 @@ const LogoLink = styled.a`
   flex-shrink: 0;
 
   img {
-    height: 52px;
+    height: 40px;
     width: auto;
     object-fit: contain;
   }
@@ -70,7 +59,7 @@ const MenuLista = styled.ul`
 
   @media (max-width: 900px) {
     position: fixed;
-    top: 64px;
+    top: 58px;
     left: 0;
     right: 0;
     flex-direction: column;
@@ -79,7 +68,7 @@ const MenuLista = styled.ul`
     background: rgba(0, 0, 0, 0.98);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding: 12px 0 18px;
-    transform: translateY(${({ $aberto }) => ($aberto ? "0" : "-110%")});
+    transform: translateY(${({ $aberto }) => ($aberto ? "0" : "-200%")});
     transition: transform 240ms ease;
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.32);
   }
@@ -159,7 +148,7 @@ const Backdrop = styled.div`
   @media (max-width: 900px) {
     display: block;
     position: fixed;
-    top: 64px;
+    top: 58px;
     left: 0;
     right: 0;
     bottom: 0;

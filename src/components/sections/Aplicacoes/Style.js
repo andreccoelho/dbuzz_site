@@ -8,10 +8,10 @@ const fade = keyframes`
 
 export const Wrapper = styled.section`
   background: ${theme.cores.bg};
-  padding: 5rem 5vw;
+  padding: 5rem clamp(16px, 5vw, 5rem);
 
   @media (max-width: ${theme.breakpoints.mobile}) {
-    padding: 3.5rem 5vw;
+    padding: 3.5rem 16px;
   }
 `;
 
@@ -53,6 +53,10 @@ export const Tabs = styled.div`
   gap: 0.45rem;
   flex-wrap: wrap;
   margin-bottom: 1.8rem;
+
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    gap: 0.35rem;
+  }
 `;
 
 export const Tab = styled.button`
@@ -160,11 +164,16 @@ export const Item = styled.li`
 
 export const Visual = styled.div`
   border-radius: 6px;
-  min-height: 280px;
+  min-height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4rem;
+  font-size: 3.5rem;
   background: var(--cinza-100);
   border: 1px solid var(--cinza-200);
+
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    min-height: 160px;
+    font-size: 3rem;
+  }
 `;

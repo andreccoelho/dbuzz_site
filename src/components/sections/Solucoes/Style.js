@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 const Secao = styled.section`
-  padding: 120px 24px;
+  padding: 100px 24px;
   background: #fff;
 
   @media (max-width: 900px) {
-    padding: 80px 18px;
+    padding: 72px 20px;
+  }
+
+  @media (max-width: 640px) {
+    padding: 56px 16px;
   }
 `;
 
@@ -16,11 +20,11 @@ const Container = styled.div`
 
 const Cabecalho = styled.header`
   max-width: 720px;
-  margin: 0 auto 72px;
+  margin: 0 auto 64px;
   text-align: center;
 
   @media (max-width: 900px) {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
     text-align: left;
   }
 `;
@@ -28,35 +32,40 @@ const Cabecalho = styled.header`
 const Kicker = styled.span`
   display: inline-block;
   font-family: var(--fonte-corpo);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--amarelo);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 `;
 
 const Titulo = styled.h2`
-  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-size: clamp(1.65rem, 3.5vw, 2.75rem);
   line-height: 1.1;
-  letter-spacing: -0.03em;
-  margin-bottom: 16px;
+  letter-spacing: -0.025em;
+  margin-bottom: 14px;
 `;
 
 const Lead = styled.p`
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--sub);
   margin: 0;
+
+  @media (max-width: 640px) {
+    font-size: 0.94rem;
+  }
 `;
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 
   @media (max-width: 1000px) {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 `;
 
@@ -77,7 +86,7 @@ const Card = styled.article`
 
 const CardTopo = styled.div`
   position: relative;
-  padding: 32px 28px 28px;
+  padding: 28px 24px 24px;
   color: #fff;
   background: #000;
   border-bottom: 3px solid #fec708;
@@ -96,18 +105,18 @@ const CardTopo = styled.div`
   .kicker-frente {
     display: inline-block;
     font-family: var(--fonte-corpo);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: rgba(255, 255, 255, 0.65);
-    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 8px;
   }
 
   h3 {
     font-family: var(--fonte-titulo);
-    font-size: 1.65rem;
-    font-weight: 800;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #fff;
     letter-spacing: -0.02em;
     margin: 0 0 6px;
@@ -118,42 +127,43 @@ const IconeBox = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 3px;
   color: #fff;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 `;
 
 const Subtitulo = styled.p`
   font-family: var(--fonte-corpo);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.82);
   line-height: 1.4;
   margin: 0;
 `;
 
 const CardCorpo = styled.div`
-  padding: 28px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   flex: 1;
+  text-align: left;
 
   > p {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.6;
     color: var(--sub);
-    margin: 0 0 22px;
+    margin: 0 0 20px;
   }
 
   .nota-juridica {
     display: block;
-    margin-bottom: 22px;
-    padding: 12px 14px;
-    font-size: 0.8rem;
+    margin-bottom: 20px;
+    padding: 10px 12px;
+    font-size: 0.78rem;
     line-height: 1.5;
     color: var(--texto);
     background: rgba(254, 199, 8, 0.1);
@@ -165,17 +175,17 @@ const CardCorpo = styled.div`
 const Lista = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 9px;
   flex: 1;
 `;
 
 const ItemLista = styled.li`
   position: relative;
-  padding-left: 24px;
-  font-size: 0.92rem;
+  padding-left: 22px;
+  font-size: 0.9rem;
   line-height: 1.45;
   color: var(--texto);
 
@@ -197,9 +207,8 @@ const CardLink = styled.a`
   margin-top: auto;
   padding: 12px 0;
   font-family: var(--fonte-corpo);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
   color: var(--amarelo);
   border-bottom: 1px solid currentColor;
   align-self: flex-start;
