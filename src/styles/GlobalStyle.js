@@ -2,25 +2,39 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --azul: #0E2554;
-    --azul-escuro: #06102A;
-    --azul2: #1B4FD8;
-    --amarelo: #F5C400;
-    --amarelo-escuro: #C99E00;
-    --verde: #00966A;
-    --verde-escuro: #064E3B;
-    --laranja: #B85600;
-    --laranja-escuro: #6B2200;
-    --bg: #F4F6FA;
-    --bg-escuro: #050B1F;
-    --texto: #1A1F2E;
-    --sub: #556581;
-    --borda: #E2E8F0;
-    --branco: #FFFFFF;
+    /* Paleta oficial */
+    --amarelo: #fec708;
+    --preto: #000000;
+    --branco: #ffffff;
 
-    --fonte-titulo: 'Syne', system-ui, sans-serif;
-    --fonte-corpo: 'DM Sans', system-ui, sans-serif;
-    --fonte-mono: 'DM Mono', 'Courier New', monospace;
+    /* Tons neutros */
+    --preto-2: #0a0a0a;
+    --cinza-900: #171717;
+    --cinza-700: #404040;
+    --cinza-500: #737373;
+    --cinza-300: #d4d4d4;
+    --cinza-200: #e5e5e5;
+    --cinza-100: #f5f5f5;
+    --cinza-50: #fafafa;
+
+    /* Aliases retrocompatíveis */
+    --azul: #000000;
+    --azul-escuro: #000000;
+    --azul2: #000000;
+    --amarelo-escuro: #d4a800;
+    --verde: #000000;
+    --verde-escuro: #000000;
+    --laranja: #000000;
+    --laranja-escuro: #000000;
+    --bg: #f5f5f5;
+    --bg-escuro: #000000;
+    --texto: #171717;
+    --sub: #404040;
+    --borda: #e5e5e5;
+
+    --fonte-titulo: 'Rajdhani', system-ui, sans-serif;
+    --fonte-corpo: 'Inter', system-ui, sans-serif;
+    --fonte-mono: 'Inter', 'Courier New', monospace;
   }
 
   *, *::before, *::after {
@@ -51,7 +65,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: var(--fonte-titulo);
     font-weight: 700;
     line-height: 1.15;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     color: var(--texto);
   }
 
@@ -79,32 +93,28 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
 
-  /* Numeros tabulares para metricas */
   .num {
     font-variant-numeric: tabular-nums;
     font-feature-settings: "tnum";
   }
 
-  /* Kicker editorial: letra pequena, caixa alta, espacamento largo */
   .kicker {
     font-family: var(--fonte-corpo);
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--sub);
+    letter-spacing: 0.16em;
+    color: var(--amarelo);
   }
 
-  /* Selecao */
   ::selection {
     background-color: var(--amarelo);
-    color: var(--azul);
+    color: #000;
   }
 
-  /* Scrollbar discreta */
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--borda); border-radius: 5px; }
+  ::-webkit-scrollbar-thumb { background: var(--borda); border-radius: 2px; }
   ::-webkit-scrollbar-thumb:hover { background: var(--sub); }
 `;
 

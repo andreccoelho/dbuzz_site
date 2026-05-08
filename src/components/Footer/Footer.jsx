@@ -14,7 +14,7 @@ const Footer = () => {
         <ColunaLogo>
           <Logo>
             <img
-              src={`${process.env.PUBLIC_URL || ""}/imagens/logo-dbuzz-branco.jpg`}
+              src="/imagens/logo-1.png"
               alt="D.Buzz Corporate"
             />
           </Logo>

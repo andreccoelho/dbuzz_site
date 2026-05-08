@@ -25,12 +25,12 @@ const Cabecalho = styled.header`
 
 const Kicker = styled.span`
   display: inline-block;
-  font-family: var(--fonte-mono);
+  font-family: var(--fonte-corpo);
   font-size: 0.78rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--azul2);
+  color: var(--amarelo);
   margin-bottom: 16px;
 `;
 
@@ -72,13 +72,12 @@ const Paragrafo = styled.p`
   margin-bottom: 1.4em;
   max-width: 60ch;
 
-  /* Drop-cap discreto no primeiro paragrafo — toque editorial anti-IA */
   &:first-of-type::first-letter {
     font-family: var(--fonte-titulo);
     font-weight: 800;
     font-size: 3.4rem;
     line-height: 1;
-    color: var(--azul);
+    color: var(--preto);
     float: left;
     margin: 4px 10px -2px 0;
     letter-spacing: -0.04em;
@@ -103,7 +102,7 @@ const MV = styled.div`
     font-family: var(--fonte-titulo);
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--azul);
+    color: var(--texto);
     margin-bottom: 8px;
     letter-spacing: -0.01em;
   }
@@ -119,9 +118,9 @@ const MV = styled.div`
 const BlocoDados = styled.div`
   background: #fff;
   padding: 32px;
-  border-radius: 12px;
+  border-radius: 4px;
   border: 1px solid var(--borda);
-  box-shadow: 0 4px 16px rgba(14, 37, 84, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   position: sticky;
   top: 96px;
 
@@ -142,18 +141,18 @@ const ItemDado = styled.div`
   &:nth-child(2) { padding-top: 16px; }
 
   > svg {
-    color: var(--azul2);
+    color: var(--cinza-500);
     margin-top: 4px;
   }
 
   .num-mark {
-    font-family: var(--fonte-mono);
+    font-family: var(--fonte-corpo);
     font-size: 0.7rem;
     font-weight: 500;
-    color: var(--amarelo-escuro);
-    background: rgba(245, 196, 0, 0.12);
+    color: #000;
+    background: rgba(254, 199, 8, 0.15);
     padding: 3px 6px;
-    border-radius: 4px;
+    border-radius: 2px;
     margin-top: 2px;
     height: fit-content;
     text-align: center;
@@ -162,16 +161,16 @@ const ItemDado = styled.div`
   small {
     display: block;
     margin-top: 4px;
-    font-family: var(--fonte-mono);
+    font-family: var(--fonte-corpo);
     font-size: 0.78rem;
     color: var(--sub);
   }
 
   a {
-    color: var(--azul2);
+    color: var(--texto);
     border-bottom: 1px dotted currentColor;
 
-    &:hover { color: var(--azul); }
+    &:hover { color: var(--amarelo); }
   }
 `;
 
@@ -223,7 +222,7 @@ const ValorPil = styled.li`
   padding: 14px 16px;
   background: #fff;
   border: 1px solid var(--borda);
-  border-radius: 8px;
+  border-radius: 3px;
   font-size: 0.92rem;
   font-weight: 500;
   color: var(--texto);
@@ -231,17 +230,17 @@ const ValorPil = styled.li`
 
   span {
     flex-shrink: 0;
-    font-family: var(--fonte-mono);
+    font-family: var(--fonte-corpo);
     font-size: 0.7rem;
     font-weight: 500;
-    color: var(--azul2);
-    background: rgba(27, 79, 216, 0.08);
+    color: #000;
+    background: rgba(0, 0, 0, 0.06);
     padding: 4px 7px;
-    border-radius: 4px;
+    border-radius: 2px;
   }
 
   &:hover {
-    border-color: var(--azul2);
+    border-color: var(--amarelo);
     transform: translateY(-1px);
   }
 `;

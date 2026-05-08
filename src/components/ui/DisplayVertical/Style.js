@@ -1,9 +1,9 @@
 import styled, { keyframes, css } from "styled-components";
 
 const tons = {
-  azul: { bg1: "#0E2554", bg2: "#1B4FD8", accent: "#F5C400", selo: "#F5C400", seloTexto: "#0E2554" },
-  verde: { bg1: "#064E3B", bg2: "#00966A", accent: "#A7F3D0", selo: "#A7F3D0", seloTexto: "#064E3B" },
-  laranja: { bg1: "#3A1000", bg2: "#B85600", accent: "#FCD34D", selo: "#FCD34D", seloTexto: "#3A1000" },
+  azul:    { bg1: "#000000", bg2: "#0a0a0a", accent: "#fec708", selo: "#fec708", seloTexto: "#000000" },
+  verde:   { bg1: "#000000", bg2: "#0a0a0a", accent: "#fec708", selo: "#fec708", seloTexto: "#000000" },
+  laranja: { bg1: "#000000", bg2: "#0a0a0a", accent: "#fec708", selo: "#fec708", seloTexto: "#000000" },
 };
 
 const Moldura = styled.div`
@@ -38,7 +38,7 @@ const Tela = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border-radius: 6px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@ const BarraStatus = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 10px 14px 6px;
-  font-family: var(--fonte-mono);
+  font-family: var(--fonte-corpo);
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   color: rgba(255, 255, 255, 0.7);

@@ -18,10 +18,10 @@ export const Container = styled.div`
 export const Label = styled.span`
   display: inline-block;
   font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: ${theme.cores.azul2};
+  color: ${theme.cores.amarelo};
   margin-bottom: 0.6rem;
 `;
 
@@ -29,8 +29,8 @@ export const Title = styled.h2`
   font-family: ${theme.fontes.titulo};
   font-size: clamp(1.7rem, 2.8vw, 2.4rem);
   font-weight: 800;
-  color: ${theme.cores.azul};
-  letter-spacing: -0.02em;
+  color: ${theme.cores.texto};
+  letter-spacing: -0.025em;
   line-height: 1.15;
   margin-bottom: 0.85rem;
 `;
@@ -60,25 +60,16 @@ export const Grid = styled.div`
 
 export const Card = styled.div`
   background: #fff;
-  border-radius: ${theme.raio.lg};
+  border-radius: 4px;
   border: 1px solid ${theme.cores.borda};
   overflow: hidden;
   transition: transform 0.25s, box-shadow 0.25s;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(14, 37, 84, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 `;
-
-const variantesImg = {
-  pi1: "linear-gradient(135deg, #E8F5F2, #B8EAE0)",
-  pi2: "linear-gradient(135deg, #EEF2FF, #C5D4FF)",
-  pi3: "linear-gradient(135deg, #FFF8E1, #FFE082)",
-  pi4: "linear-gradient(135deg, #F0F8FF, #C0D8F8)",
-  pi5: "linear-gradient(135deg, #FFF0E8, #FFD0B0)",
-  pi6: "linear-gradient(135deg, #F5F0FF, #D8C0FF)",
-};
 
 export const ImgBox = styled.div`
   height: 158px;
@@ -87,7 +78,8 @@ export const ImgBox = styled.div`
   justify-content: center;
   font-size: 2.8rem;
   position: relative;
-  background: ${({ $variante }) => variantesImg[$variante] || variantesImg.pi1};
+  background: var(--cinza-100);
+  border-bottom: 1px solid var(--cinza-200);
 `;
 
 export const Badge = styled.span`
@@ -99,22 +91,22 @@ export const Badge = styled.span`
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 0.17rem 0.58rem;
-  border-radius: 100px;
+  border-radius: 2px;
 
   ${({ $tipo }) =>
     $tipo === "priv"
       ? css`
-          background: rgba(0, 150, 106, 0.88);
+          background: #000;
           color: #fff;
         `
       : $tipo === "pub"
       ? css`
-          background: rgba(14, 37, 84, 0.88);
-          color: ${theme.cores.amarelo};
+          background: #000;
+          color: #fec708;
         `
       : css`
-          background: rgba(184, 86, 0, 0.88);
-          color: #fff;
+          background: #fec708;
+          color: #000;
         `}
 `;
 
@@ -126,7 +118,7 @@ export const CardTitle = styled.h4`
   font-family: ${theme.fontes.titulo};
   font-size: 0.94rem;
   font-weight: 700;
-  color: ${theme.cores.azul};
+  color: ${theme.cores.texto};
   margin-bottom: 0.32rem;
   line-height: 1.3;
 `;
@@ -148,7 +140,7 @@ export const Tag = styled.span`
   font-size: 0.71rem;
   font-weight: 600;
   padding: 0.17rem 0.58rem;
-  border-radius: 100px;
+  border-radius: 2px;
   background: ${theme.cores.bg};
   color: ${theme.cores.sub};
 `;

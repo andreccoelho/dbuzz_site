@@ -17,7 +17,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 72);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -26,10 +26,10 @@ const Header = () => {
 
   return (
     <Nav $scrolled={scrolled}>
-      <Container>
+      <Container $scrolled={scrolled}>
         <LogoLink href="#inicio" onClick={fechar} aria-label="D.Buzz Corporate — Início">
           <img
-            src={`${process.env.PUBLIC_URL || ""}/imagens/logo-dbuzz-branco.jpg`}
+            src="/imagens/logo-1.png"
             alt="D.Buzz Corporate"
           />
         </LogoLink>

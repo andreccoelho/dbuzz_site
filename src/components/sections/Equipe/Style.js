@@ -18,10 +18,10 @@ export const Container = styled.div`
 export const Label = styled.span`
   display: inline-block;
   font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: ${theme.cores.azul2};
+  color: ${theme.cores.amarelo};
   margin-bottom: 0.6rem;
 `;
 
@@ -29,8 +29,8 @@ export const Title = styled.h2`
   font-family: ${theme.fontes.titulo};
   font-size: clamp(1.7rem, 2.8vw, 2.4rem);
   font-weight: 800;
-  color: ${theme.cores.azul};
-  letter-spacing: -0.02em;
+  color: ${theme.cores.texto};
+  letter-spacing: -0.025em;
   line-height: 1.15;
   margin-bottom: 0.85rem;
 `;
@@ -60,7 +60,7 @@ export const Grid = styled.div`
 
 export const Card = styled.div`
   background: #fff;
-  border-radius: ${theme.raio.lg};
+  border-radius: 4px;
   padding: 1.45rem;
   border: 1px solid ${theme.cores.borda};
   text-align: center;
@@ -70,7 +70,7 @@ export const Avatar = styled.div`
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  background: linear-gradient(135deg, ${theme.cores.azul}, ${theme.cores.azul2});
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,7 +82,7 @@ export const Nome = styled.h4`
   font-family: ${theme.fontes.titulo};
   font-size: 0.93rem;
   font-weight: 700;
-  color: ${theme.cores.azul};
+  color: ${theme.cores.texto};
   margin-bottom: 0.2rem;
 `;
 
@@ -101,7 +101,7 @@ export const Desc = styled.p`
 
 export const IgBox = styled.div`
   background: #fff;
-  border-radius: 14px;
+  border-radius: 6px;
   padding: 2rem;
   border: 1px solid ${theme.cores.borda};
   text-align: center;
@@ -111,7 +111,7 @@ export const IgTitle = styled.h3`
   font-family: ${theme.fontes.titulo};
   font-size: 1.08rem;
   font-weight: 700;
-  color: ${theme.cores.azul};
+  color: ${theme.cores.texto};
   margin-bottom: 0.35rem;
 `;
 
@@ -130,15 +130,6 @@ export const IgGrid = styled.div`
   margin: 0 auto 1.4rem;
 `;
 
-const igGrad = [
-  "linear-gradient(135deg, #E8F5F2, #A8DDD4)",
-  "linear-gradient(135deg, #EEF2FF, #B8C8FF)",
-  "linear-gradient(135deg, #FFF8E1, #FFD870)",
-  "linear-gradient(135deg, #F3E8FF, #C8A8FF)",
-  "linear-gradient(135deg, #FFE8E8, #FFB0B0)",
-  "linear-gradient(135deg, #E8F5E9, #A8E6B0)",
-];
-
 export const IgPlaceholder = styled.div`
   aspect-ratio: 1;
   border-radius: ${theme.raio.sm};
@@ -146,43 +137,26 @@ export const IgPlaceholder = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 1.75rem;
-
-  &:nth-child(1) {
-    background: ${igGrad[0]};
-  }
-  &:nth-child(2) {
-    background: ${igGrad[1]};
-  }
-  &:nth-child(3) {
-    background: ${igGrad[2]};
-  }
-  &:nth-child(4) {
-    background: ${igGrad[3]};
-  }
-  &:nth-child(5) {
-    background: ${igGrad[4]};
-  }
-  &:nth-child(6) {
-    background: ${igGrad[5]};
-  }
+  background: var(--cinza-100);
+  border: 1px solid var(--cinza-200);
 `;
 
 export const IgBtn = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: ${theme.cores.azul};
-  color: #fff;
+  background: ${theme.cores.amarelo};
+  color: #000;
   padding: 0.68rem 1.4rem;
   border-radius: ${theme.raio.sm};
   font-family: ${theme.fontes.titulo};
   font-weight: 700;
   font-size: 0.88rem;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: background 0.2s, color 0.2s;
   text-decoration: none;
 
   &:hover {
-    opacity: 0.88;
-    transform: translateY(-2px);
+    background: #000;
+    color: var(--amarelo);
   }
 `;

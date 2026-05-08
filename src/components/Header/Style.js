@@ -6,31 +6,42 @@ const Nav = styled.nav`
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(14, 37, 84, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(245, 196, 0, 0);
-  transition: background 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  background: transparent;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  transition:
+    background 400ms ease,
+    border-color 400ms ease,
+    box-shadow 400ms ease,
+    backdrop-filter 400ms ease,
+    -webkit-backdrop-filter 400ms ease;
 
   ${({ $scrolled }) =>
     $scrolled &&
     css`
-      background: rgba(14, 37, 84, 0.97);
-      border-bottom-color: rgba(245, 196, 0, 0.2);
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom-color: rgba(255, 255, 255, 0.07);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.04) inset,
+        0 8px 32px rgba(0, 0, 0, 0.5);
     `}
 `;
 
 const Container = styled.div`
   max-width: 1280px;
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: ${({ $scrolled }) => ($scrolled ? "10px 24px" : "18px 24px")};
   display: flex;
   align-items: center;
   gap: 28px;
+  transition: padding 400ms ease;
 
   @media (max-width: 900px) {
-    padding: 12px 18px;
+    padding: ${({ $scrolled }) => ($scrolled ? "10px 18px" : "16px 18px")};
     gap: 12px;
   }
 `;
@@ -41,7 +52,7 @@ const LogoLink = styled.a`
   flex-shrink: 0;
 
   img {
-    height: 38px;
+    height: 52px;
     width: auto;
     object-fit: contain;
   }
@@ -65,8 +76,8 @@ const MenuLista = styled.ul`
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    background: var(--azul);
-    border-bottom: 1px solid rgba(245, 196, 0, 0.18);
+    background: rgba(0, 0, 0, 0.98);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding: 12px 0 18px;
     transform: translateY(${({ $aberto }) => ($aberto ? "0" : "-110%")});
     transition: transform 240ms ease;
@@ -80,13 +91,13 @@ const ItemMenu = styled.li`
     padding: 8px 14px;
     font-size: 0.92rem;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.82);
-    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.65);
+    border-radius: 2px;
     transition: color 160ms ease, background 160ms ease;
 
     &:hover {
       color: var(--amarelo);
-      background: rgba(245, 196, 0, 0.08);
+      background: rgba(254, 199, 8, 0.08);
     }
   }
 
@@ -105,19 +116,19 @@ const BotaoCta = styled.a`
   display: inline-flex;
   align-items: center;
   padding: 10px 20px;
-  font-family: var(--fonte-corpo);
+  font-family: var(--fonte-titulo);
   font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.01em;
-  color: var(--azul);
+  color: #000;
   background: var(--amarelo);
-  border-radius: 6px;
+  border-radius: 3px;
   flex-shrink: 0;
-  transition: background 160ms ease, transform 160ms ease;
+  transition: background 160ms ease, color 160ms ease;
 
   &:hover {
-    background: #ffd322;
-    transform: translateY(-1px);
+    background: #000;
+    color: var(--amarelo);
   }
 
   @media (max-width: 900px) {
@@ -132,7 +143,7 @@ const MenuMobile = styled.button`
   width: 40px;
   height: 40px;
   color: var(--branco);
-  border-radius: 6px;
+  border-radius: 2px;
 
   &:hover { background: rgba(255, 255, 255, 0.08); }
 
@@ -152,7 +163,7 @@ const Backdrop = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(6, 16, 42, 0.6);
+    background: rgba(0, 0, 0, 0.6);
     z-index: -1;
   }
 `;

@@ -18,10 +18,10 @@ export const Container = styled.div`
 export const Label = styled.span`
   display: inline-block;
   font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: ${theme.cores.azul2};
+  color: ${theme.cores.amarelo};
   margin-bottom: 0.6rem;
 `;
 
@@ -29,8 +29,8 @@ export const Title = styled.h2`
   font-family: ${theme.fontes.titulo};
   font-size: clamp(1.7rem, 2.8vw, 2.4rem);
   font-weight: 800;
-  color: ${theme.cores.azul};
-  letter-spacing: -0.02em;
+  color: ${theme.cores.texto};
+  letter-spacing: -0.025em;
   line-height: 1.15;
   margin-bottom: 0.85rem;
 `;
@@ -59,7 +59,7 @@ export const SubTitulo = styled.h3`
   font-family: ${theme.fontes.titulo};
   font-size: 1.05rem;
   font-weight: 700;
-  color: ${theme.cores.azul};
+  color: ${theme.cores.texto};
   margin-bottom: 0.6rem;
 `;
 
@@ -93,8 +93,8 @@ export const Item = styled.li`
 `;
 
 export const CmsBox = styled.div`
-  background: ${theme.cores.azul};
-  border-radius: 14px;
+  background: #000;
+  border-radius: 6px;
   padding: 1.9rem;
   color: #fff;
 `;
@@ -134,7 +134,7 @@ export const CmsFeat = styled.div`
   gap: 0.7rem;
   align-items: center;
   background: rgba(255, 255, 255, 0.07);
-  border-radius: 7px;
+  border-radius: 3px;
   padding: 0.62rem 0.88rem;
   font-size: 0.87rem;
   color: rgba(255, 255, 255, 0.78);
@@ -150,17 +150,18 @@ export const CmsFeat = styled.div`
 export const CmsBtn = styled.a`
   display: inline-block;
   background: ${theme.cores.amarelo};
-  color: ${theme.cores.azul};
+  color: #000;
   padding: 0.62rem 1.25rem;
   border-radius: ${theme.raio.sm};
   font-family: ${theme.fontes.titulo};
   font-weight: 700;
   font-size: 0.86rem;
   margin-top: 1.2rem;
-  transition: opacity 0.2s;
+  transition: background 0.2s, color 0.2s;
   text-decoration: none;
 
   &:hover {
-    opacity: 0.88;
+    background: #fff;
+    color: #000;
   }
 `;

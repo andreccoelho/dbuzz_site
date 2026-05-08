@@ -1,8 +1,8 @@
-import styled, { keyframes, css } from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const Secao = styled.section`
   position: relative;
-  background: linear-gradient(180deg, #06102A 0%, #0E2554 100%);
+  background: #000;
   color: #fff;
   padding: 120px 24px 88px;
   overflow: hidden;
@@ -12,14 +12,13 @@ const Secao = styled.section`
   }
 `;
 
-/* Grid decorativo de linhas amareladas — substitui o gradiente generico de IA */
 const GridDecorativo = styled.div`
   position: absolute;
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(245, 196, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(245, 196, 0, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 64px 64px;
   background-position: -1px -1px;
   mask-image: radial-gradient(ellipse 80% 70% at 30% 40%, #000 30%, transparent 80%);
@@ -45,18 +44,13 @@ const Coluna = styled.div`
   max-width: 640px;
 `;
 
-const piscaPonto = keyframes`
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.3; }
-`;
-
 const Kicker = styled.div`
   display: inline-flex;
   align-items: center;
   gap: 10px;
   font-family: var(--fonte-corpo);
   font-size: 0.78rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: rgba(255, 255, 255, 0.78);
@@ -68,7 +62,6 @@ const Kicker = styled.div`
     height: 8px;
     background: var(--amarelo);
     border-radius: 50%;
-    animation: ${piscaPonto} 2.4s ease-in-out infinite;
   }
 `;
 
@@ -92,7 +85,7 @@ const AcentoAmarelo = styled.span`
     right: 0;
     bottom: 4px;
     height: 8px;
-    background: rgba(245, 196, 0, 0.18);
+    background: rgba(254, 199, 8, 0.18);
     z-index: -1;
     border-radius: 2px;
   }
@@ -119,18 +112,12 @@ const Frentes = styled.ul`
   }
 `;
 
-const coresFrente = {
-  verde: "#10B981",
-  azul: "#60A5FA",
-  laranja: "#F59E0B",
-};
-
 const Frente = styled.li`
   position: relative;
   padding: 14px 16px 14px 30px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
+  border-radius: 3px;
   font-size: 0.88rem;
   font-weight: 600;
   color: #fff;
@@ -143,10 +130,8 @@ const Frente = styled.li`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    ${({ $cor }) => css`
-      background: ${coresFrente[$cor]};
-      box-shadow: 0 0 0 4px ${coresFrente[$cor]}22;
-    `}
+    background: #fec708;
+    box-shadow: 0 0 0 4px rgba(254, 199, 8, 0.13);
   }
 
   em {
@@ -171,17 +156,17 @@ const BotaoPrimario = styled.a`
   align-items: center;
   gap: 10px;
   padding: 14px 22px;
-  font-family: var(--fonte-corpo);
+  font-family: var(--fonte-titulo);
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--azul);
+  color: #000;
   background: var(--amarelo);
-  border-radius: 8px;
-  transition: transform 160ms ease, background 160ms ease;
+  border-radius: 3px;
+  transition: background 160ms ease, color 160ms ease;
 
   &:hover {
-    background: #ffd322;
-    transform: translateY(-1px);
+    background: #000;
+    color: var(--amarelo);
   }
 `;
 
@@ -190,18 +175,19 @@ const BotaoSecundario = styled.a`
   align-items: center;
   gap: 10px;
   padding: 14px 22px;
-  font-family: var(--fonte-corpo);
+  font-family: var(--fonte-titulo);
   font-size: 0.95rem;
   font-weight: 600;
   color: #fff;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 8px;
+  border-radius: 3px;
   transition: background 160ms ease, border-color 160ms ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(245, 196, 0, 0.4);
+    background: var(--amarelo);
+    color: #000;
+    border-color: var(--amarelo);
   }
 `;
 
@@ -285,7 +271,6 @@ const Mockups = styled.div`
   align-items: center;
   min-height: 480px;
 
-  /* tres displays sobrepostos com leve rotacao — tipo "espalhado em mesa" */
   > div:nth-child(1) {
     position: absolute;
     left: 0;

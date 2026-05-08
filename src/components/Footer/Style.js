@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Rodape = styled.footer`
-  background: #050B1F;
+  background: #000;
   color: rgba(255, 255, 255, 0.7);
   padding: 72px 24px 24px;
 
@@ -31,7 +31,7 @@ const ColunaLogo = styled.div`
 const Logo = styled.div`
   margin-bottom: 18px;
   img {
-    height: 38px;
+    height: 52px;
     width: auto;
   }
 `;

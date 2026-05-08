@@ -23,10 +23,10 @@ export const Container = styled.div`
 export const Label = styled.span`
   display: inline-block;
   font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: ${theme.cores.azul2};
+  color: ${theme.cores.amarelo};
   margin-bottom: 0.6rem;
 `;
 
@@ -34,8 +34,8 @@ export const Title = styled.h2`
   font-family: ${theme.fontes.titulo};
   font-size: clamp(1.7rem, 2.8vw, 2.4rem);
   font-weight: 800;
-  color: ${theme.cores.azul};
-  letter-spacing: -0.02em;
+  color: ${theme.cores.texto};
+  letter-spacing: -0.025em;
   line-height: 1.15;
   margin-bottom: 0.85rem;
 `;
@@ -70,15 +70,15 @@ export const Tab = styled.button`
   ${({ $on }) =>
     $on &&
     css`
-      background: ${theme.cores.azul};
+      background: #000;
       color: #fff;
-      border-color: ${theme.cores.azul};
+      border-color: #000;
     `}
 
   &:hover {
-    background: ${theme.cores.azul};
+    background: #000;
     color: #fff;
-    border-color: ${theme.cores.azul};
+    border-color: #000;
   }
 `;
 
@@ -104,18 +104,18 @@ export const TagPill = styled.span`
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 0.2rem 0.68rem;
-  border-radius: 100px;
+  border-radius: 2px;
   margin-bottom: 0.65rem;
 
   ${({ $tipo }) =>
     $tipo === "priv"
       ? css`
-          background: rgba(0, 150, 106, 0.1);
-          color: ${theme.cores.verde};
+          background: #000;
+          color: #fff;
         `
       : css`
-          background: rgba(27, 79, 216, 0.08);
-          color: ${theme.cores.azul2};
+          background: #000;
+          color: #fec708;
         `}
 `;
 
@@ -123,7 +123,7 @@ export const PaneTitle = styled.h3`
   font-family: ${theme.fontes.titulo};
   font-size: 1.45rem;
   font-weight: 800;
-  color: ${theme.cores.azul};
+  color: ${theme.cores.texto};
   margin-bottom: 0.7rem;
 `;
 
@@ -152,27 +152,19 @@ export const Item = styled.li`
 
   &::before {
     content: "✓";
-    color: ${theme.cores.verde};
+    color: ${theme.cores.amarelo};
     font-weight: 700;
     flex-shrink: 0;
   }
 `;
 
-const visuais = {
-  v1: "linear-gradient(135deg, #E8F5F2, #B8EAE0)",
-  v2: "linear-gradient(135deg, #EEF2FF, #C5D4FF)",
-  v3: "linear-gradient(135deg, #F3E8FF, #D8C0FF)",
-  v4: "linear-gradient(135deg, #FFF8E1, #FFE082)",
-  v5: "linear-gradient(135deg, #FFF0F0, #FFD0D0)",
-  v6: "linear-gradient(135deg, #E8EEF8, #C0D0F0)",
-};
-
 export const Visual = styled.div`
-  border-radius: 14px;
+  border-radius: 6px;
   min-height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 4rem;
-  background: ${({ $variante }) => visuais[$variante] || visuais.v1};
+  background: var(--cinza-100);
+  border: 1px solid var(--cinza-200);
 `;

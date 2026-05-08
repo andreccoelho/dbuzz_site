@@ -7,7 +7,7 @@ const barAnim = keyframes`
 `;
 
 export const Wrapper = styled.section`
-  background: linear-gradient(135deg, #3a1000 0%, #6b2200 55%, #8b3200 100%);
+  background: #000;
   padding: 5rem 5vw;
 
   @media (max-width: ${theme.breakpoints.mobile}) {
@@ -23,10 +23,10 @@ export const Container = styled.div`
 export const Label = styled.span`
   display: inline-block;
   font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #ffb366;
+  color: ${theme.cores.amarelo};
   margin-bottom: 0.6rem;
 `;
 
@@ -35,7 +35,7 @@ export const Title = styled.h2`
   font-size: clamp(1.7rem, 2.8vw, 2.4rem);
   font-weight: 800;
   color: #fff;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   line-height: 1.15;
   margin-bottom: 0.85rem;
 `;
@@ -69,7 +69,7 @@ export const Stats = styled.div`
 export const Stat = styled.div`
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.11);
-  border-radius: 9px;
+  border-radius: 4px;
   padding: 1.1rem;
 `;
 
@@ -77,7 +77,7 @@ export const StatN = styled.div`
   font-family: ${theme.fontes.titulo};
   font-size: 1.75rem;
   font-weight: 800;
-  color: #ffb366;
+  color: ${theme.cores.amarelo};
   line-height: 1;
 `;
 
@@ -115,7 +115,7 @@ export const ProgItem = styled.li`
 
   &::before {
     content: "▶";
-    color: #ffb366;
+    color: ${theme.cores.amarelo};
     font-size: 0.65rem;
     flex-shrink: 0;
     margin-top: 4px;
@@ -125,7 +125,7 @@ export const ProgItem = styled.li`
 export const Card = styled.div`
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.11);
-  border-radius: 14px;
+  border-radius: 6px;
   padding: 1.8rem;
 `;
 
@@ -150,9 +150,8 @@ export const Screen = styled.div`
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(245, 196, 0, 0.05) 0%,
-      transparent 50%,
-      rgba(184, 86, 0, 0.1) 100%
+      rgba(254, 199, 8, 0.05) 0%,
+      transparent 100%
     );
   }
 `;
@@ -230,11 +229,13 @@ export const AnuncBtn = styled.a`
   font-family: ${theme.fontes.titulo};
   font-weight: 700;
   font-size: 0.86rem;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
   text-decoration: none;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: ${theme.cores.amarelo};
+    color: #000;
+    border-color: ${theme.cores.amarelo};
   }
 `;
 

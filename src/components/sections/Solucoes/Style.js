@@ -1,25 +1,4 @@
-import styled, { css } from "styled-components";
-
-const tons = {
-  verde: {
-    grad1: "#064E3B",
-    grad2: "#00966A",
-    accent: "#00966A",
-    pastel: "#A7F3D0",
-  },
-  azul: {
-    grad1: "#0E2554",
-    grad2: "#1B4FD8",
-    accent: "#1B4FD8",
-    pastel: "#BFDBFE",
-  },
-  laranja: {
-    grad1: "#6B2200",
-    grad2: "#B85600",
-    accent: "#B85600",
-    pastel: "#FED7AA",
-  },
-};
+import styled from "styled-components";
 
 const Secao = styled.section`
   padding: 120px 24px;
@@ -48,12 +27,12 @@ const Cabecalho = styled.header`
 
 const Kicker = styled.span`
   display: inline-block;
-  font-family: var(--fonte-mono);
+  font-family: var(--fonte-corpo);
   font-size: 0.78rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--azul2);
+  color: var(--amarelo);
   margin-bottom: 16px;
 `;
 
@@ -86,17 +65,13 @@ const Card = styled.article`
   flex-direction: column;
   background: #fff;
   border: 1px solid var(--borda);
-  border-radius: 12px;
+  border-radius: 4px;
   overflow: hidden;
-  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+  transition: transform 240ms ease, box-shadow 240ms ease;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(14, 37, 84, 0.12);
-    ${({ $cor }) =>
-      css`
-        border-color: ${tons[$cor].accent};
-      `}
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 `;
 
@@ -104,19 +79,14 @@ const CardTopo = styled.div`
   position: relative;
   padding: 32px 28px 28px;
   color: #fff;
-  ${({ $cor }) => {
-    const t = tons[$cor];
-    return css`
-      background: linear-gradient(135deg, ${t.grad1} 0%, ${t.grad2} 100%);
-    `;
-  }}
+  background: #000;
+  border-bottom: 3px solid #fec708;
 
-  /* textura sutil de pontos — anti-IA, evita gradiente "limpo demais" */
   &::after {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 18px 18px;
     pointer-events: none;
   }
@@ -125,9 +95,9 @@ const CardTopo = styled.div`
 
   .kicker-frente {
     display: inline-block;
-    font-family: var(--fonte-mono);
+    font-family: var(--fonte-corpo);
     font-size: 0.7rem;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.14em;
     color: rgba(255, 255, 255, 0.65);
@@ -152,7 +122,7 @@ const IconeBox = styled.div`
   height: 44px;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
+  border-radius: 3px;
   color: #fff;
   margin-bottom: 18px;
 `;
@@ -185,10 +155,10 @@ const CardCorpo = styled.div`
     padding: 12px 14px;
     font-size: 0.8rem;
     line-height: 1.5;
-    color: var(--azul);
-    background: rgba(245, 196, 0, 0.1);
+    color: var(--texto);
+    background: rgba(254, 199, 8, 0.1);
     border-left: 3px solid var(--amarelo);
-    border-radius: 4px;
+    border-radius: 2px;
   }
 `;
 
@@ -214,11 +184,9 @@ const ItemLista = styled.li`
     position: absolute;
     left: 0;
     top: 0;
-    font-family: var(--fonte-mono);
+    font-family: var(--fonte-corpo);
     font-weight: 500;
-    ${({ $cor }) => css`
-      color: ${tons[$cor].accent};
-    `}
+    color: var(--amarelo);
   }
 `;
 
@@ -232,14 +200,10 @@ const CardLink = styled.a`
   font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: 0.01em;
+  color: var(--amarelo);
   border-bottom: 1px solid currentColor;
   align-self: flex-start;
   transition: gap 200ms ease;
-
-  ${({ $cor }) =>
-    css`
-      color: ${tons[$cor].accent};
-    `}
 
   &:hover { gap: 14px; }
 `;

@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { theme } from "../../../styles/theme";
 
 export const Wrapper = styled.section`
-  background: linear-gradient(135deg, #06102a 0%, #0e2554 100%);
+  background: #000;
   padding: 5rem 5vw;
 
   @media (max-width: ${theme.breakpoints.mobile}) {
@@ -18,8 +18,8 @@ export const Container = styled.div`
 export const Label = styled.span`
   display: inline-block;
   font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: ${theme.cores.amarelo};
   margin-bottom: 0.6rem;
@@ -30,7 +30,7 @@ export const Title = styled.h2`
   font-size: clamp(1.7rem, 2.8vw, 2.4rem);
   font-weight: 800;
   color: #fff;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   line-height: 1.15;
   margin-bottom: 0.85rem;
 `;
@@ -57,7 +57,7 @@ export const Grid = styled.div`
 export const Card = styled.div`
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.11);
-  border-radius: ${theme.raio.lg};
+  border-radius: 4px;
   padding: 1.7rem;
 `;
 
@@ -90,7 +90,7 @@ export const Btn = styled.a`
   font-family: ${theme.fontes.titulo};
   font-weight: 700;
   font-size: 0.84rem;
-  transition: opacity 0.2s, background 0.2s;
+  transition: background 0.2s, color 0.2s;
   text-decoration: none;
 
   ${({ $tipo }) =>
@@ -100,14 +100,17 @@ export const Btn = styled.a`
           color: #fff;
           border: 1px solid rgba(255, 255, 255, 0.2);
           &:hover {
-            background: rgba(255, 255, 255, 0.18);
+            background: var(--amarelo);
+            color: #000;
+            border-color: var(--amarelo);
           }
         `
       : css`
           background: ${theme.cores.amarelo};
-          color: ${theme.cores.azul};
+          color: #000;
           &:hover {
-            opacity: 0.88;
+            background: #fff;
+            color: #000;
           }
         `}
 `;
