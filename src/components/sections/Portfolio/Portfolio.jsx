@@ -1,10 +1,11 @@
 import React from "react";
+import { Stethoscope, GraduationCap, Landmark, Building2, ShoppingBag, Tv2 } from "lucide-react";
 import * as S from "./Style";
 
 const CASES = [
   {
     img: "pi1",
-    icon: "🩺",
+    Icon: Stethoscope,
     badge: "Privado",
     badgeTipo: "priv",
     titulo: "Saúde Digital — clínica multiespecialidade",
@@ -13,7 +14,7 @@ const CASES = [
   },
   {
     img: "pi2",
-    icon: "🎓",
+    Icon: GraduationCap,
     badge: "Privado",
     badgeTipo: "priv",
     titulo: "Escola Digital — colégio bilíngue",
@@ -22,7 +23,7 @@ const CASES = [
   },
   {
     img: "pi3",
-    icon: "🏛️",
+    Icon: Landmark,
     badge: "Público",
     badgeTipo: "pub",
     titulo: "Comunicação Pública — projeto institucional",
@@ -31,7 +32,7 @@ const CASES = [
   },
   {
     img: "pi4",
-    icon: "🏢",
+    Icon: Building2,
     badge: "Privado",
     badgeTipo: "priv",
     titulo: "Endomarketing — operação corporativa",
@@ -40,7 +41,7 @@ const CASES = [
   },
   {
     img: "pi5",
-    icon: "📺",
+    Icon: Tv2,
     badge: "TV D.Buzz",
     badgeTipo: "tv",
     titulo: "TV D.Buzz — rede comercial Baixada Fluminense",
@@ -49,7 +50,7 @@ const CASES = [
   },
   {
     img: "pi6",
-    icon: "🛍️",
+    Icon: ShoppingBag,
     badge: "Privado",
     badgeTipo: "priv",
     titulo: "Comércio — rede de varejo regional",
@@ -69,23 +70,26 @@ const Portfolio = () => (
       </S.Sub>
 
       <S.Grid>
-        {CASES.map((c, i) => (
-          <S.Card key={i}>
-            <S.ImgBox $variante={c.img}>
-              <S.Badge $tipo={c.badgeTipo}>{c.badge}</S.Badge>
-              <span aria-hidden="true">{c.icon}</span>
-            </S.ImgBox>
-            <S.Body>
-              <S.CardTitle>{c.titulo}</S.CardTitle>
-              <S.CardDesc>{c.desc}</S.CardDesc>
-              <S.Tags>
-                {c.tags.map((t, j) => (
-                  <S.Tag key={j}>{t}</S.Tag>
-                ))}
-              </S.Tags>
-            </S.Body>
-          </S.Card>
-        ))}
+        {CASES.map((c, i) => {
+          const CardIcon = c.Icon;
+          return (
+            <S.Card key={i}>
+              <S.ImgBox $variante={c.img}>
+                <S.Badge $tipo={c.badgeTipo}>{c.badge}</S.Badge>
+                <CardIcon size={44} aria-hidden="true" />
+              </S.ImgBox>
+              <S.Body>
+                <S.CardTitle>{c.titulo}</S.CardTitle>
+                <S.CardDesc>{c.desc}</S.CardDesc>
+                <S.Tags>
+                  {c.tags.map((t, j) => (
+                    <S.Tag key={j}>{t}</S.Tag>
+                  ))}
+                </S.Tags>
+              </S.Body>
+            </S.Card>
+          );
+        })}
       </S.Grid>
     </S.Container>
   </S.Wrapper>

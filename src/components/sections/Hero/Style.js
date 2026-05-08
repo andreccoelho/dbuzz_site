@@ -1,19 +1,35 @@
 import styled, { keyframes } from "styled-components";
 
+const entradaSobe = keyframes`
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+`;
+
+const fadeEntrada = keyframes`
+  from { opacity: 0; }
+  to   { opacity: 1; }
+`;
+
+const flutua = keyframes`
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+`;
+
+const bounce = keyframes`
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(7px); }
+`;
+
+
 const Secao = styled.section`
   position: relative;
   background: #000;
   color: #fff;
-  padding: 120px 24px 88px;
+  padding: 120px 24px 100px;
   overflow: hidden;
 
-  @media (max-width: 900px) {
-    padding: 100px 20px 72px;
-  }
-
-  @media (max-width: 640px) {
-    padding: 88px 16px 56px;
-  }
+  @media (max-width: 900px) { padding: 100px 20px 80px; }
+  @media (max-width: 640px) { padding: 88px 16px 64px; }
 `;
 
 const GridDecorativo = styled.div`
@@ -21,8 +37,8 @@ const GridDecorativo = styled.div`
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 64px 64px;
   background-position: -1px -1px;
   mask-image: radial-gradient(ellipse 80% 70% at 30% 40%, #000 30%, transparent 80%);
@@ -47,9 +63,7 @@ const Grid = styled.div`
 const Coluna = styled.div`
   max-width: 640px;
 
-  @media (max-width: 1100px) {
-    max-width: 100%;
-  }
+  @media (max-width: 1100px) { max-width: 100%; }
 `;
 
 const Kicker = styled.div`
@@ -61,8 +75,9 @@ const Kicker = styled.div`
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255,255,255,0.78);
   margin-bottom: 20px;
+  animation: ${entradaSobe} 0.55s cubic-bezier(0.22,1,0.36,1) both;
 
   span {
     display: inline-block;
@@ -85,10 +100,9 @@ const Titulo = styled.h1`
   line-height: 1.08;
   letter-spacing: -0.025em;
   margin-bottom: 20px;
+  animation: ${entradaSobe} 0.6s cubic-bezier(0.22,1,0.36,1) both 80ms;
 
-  @media (max-width: 640px) {
-    margin-bottom: 16px;
-  }
+  @media (max-width: 640px) { margin-bottom: 16px; }
 `;
 
 const AcentoAmarelo = styled.span`
@@ -99,11 +113,9 @@ const AcentoAmarelo = styled.span`
   &::after {
     content: "";
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 4px;
+    left: 0; right: 0; bottom: 4px;
     height: 8px;
-    background: rgba(254, 199, 8, 0.18);
+    background: rgba(254,199,8,0.18);
     z-index: -1;
     border-radius: 2px;
   }
@@ -112,9 +124,10 @@ const AcentoAmarelo = styled.span`
 const Texto = styled.p`
   font-size: 1rem;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255,255,255,0.78);
   max-width: 580px;
   margin-bottom: 24px;
+  animation: ${entradaSobe} 0.6s cubic-bezier(0.22,1,0.36,1) both 160ms;
 
   @media (max-width: 640px) {
     font-size: 0.94rem;
@@ -129,6 +142,7 @@ const Frentes = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  animation: ${entradaSobe} 0.6s cubic-bezier(0.22,1,0.36,1) both 240ms;
 
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
@@ -140,13 +154,20 @@ const Frentes = styled.ul`
 const Frente = styled.li`
   position: relative;
   padding: 12px 14px 12px 28px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 3px;
   font-size: 0.84rem;
   font-weight: 600;
   color: #fff;
   line-height: 1.4;
+  cursor: default;
+  transition: background 200ms ease, transform 200ms ease;
+
+  &:hover {
+    background: rgba(255,255,255,0.07);
+    transform: translateY(-2px);
+  }
 
   span {
     position: absolute;
@@ -156,7 +177,7 @@ const Frente = styled.li`
     height: 7px;
     border-radius: 50%;
     background: #fec708;
-    box-shadow: 0 0 0 3px rgba(254, 199, 8, 0.13);
+    box-shadow: 0 0 0 3px rgba(254,199,8,0.13);
   }
 
   em {
@@ -164,7 +185,7 @@ const Frente = styled.li`
     font-style: normal;
     font-weight: 400;
     font-size: 0.76rem;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255,255,255,0.55);
     margin-top: 2px;
   }
 
@@ -182,10 +203,9 @@ const Acoes = styled.div`
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 14px;
+  animation: ${entradaSobe} 0.6s cubic-bezier(0.22,1,0.36,1) both 320ms;
 
-  @media (max-width: 480px) {
-    flex-direction: column;
-  }
+  @media (max-width: 480px) { flex-direction: column; }
 `;
 
 const BotaoPrimario = styled.a`
@@ -201,16 +221,18 @@ const BotaoPrimario = styled.a`
   background: var(--amarelo);
   border-radius: 3px;
   min-height: 48px;
-  transition: background 160ms ease, color 160ms ease;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
 
   &:hover {
-    background: #000;
-    color: var(--amarelo);
+    background: #fff;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(254,199,8,0.30);
   }
 
-  @media (max-width: 480px) {
-    width: 100%;
-  }
+  &:active { transform: translateY(0); }
+
+  @media (max-width: 480px) { width: 100%; }
 `;
 
 const BotaoSecundario = styled.a`
@@ -223,21 +245,21 @@ const BotaoSecundario = styled.a`
   font-size: 0.95rem;
   font-weight: 600;
   color: #fff;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 3px;
   min-height: 48px;
-  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
 
   &:hover {
-    background: var(--amarelo);
-    color: #000;
-    border-color: var(--amarelo);
+    background: rgba(255,255,255,0.11);
+    border-color: rgba(255,255,255,0.32);
+    transform: translateY(-2px);
   }
 
-  @media (max-width: 480px) {
-    width: 100%;
-  }
+  &:active { transform: translateY(0); }
+
+  @media (max-width: 480px) { width: 100%; }
 `;
 
 const LinksSecundarios = styled.div`
@@ -247,14 +269,15 @@ const LinksSecundarios = styled.div`
   gap: 10px 14px;
   margin: 0 0 40px;
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255,255,255,0.6);
+  animation: ${entradaSobe} 0.6s cubic-bezier(0.22,1,0.36,1) both 400ms;
 
   a {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: rgba(255, 255, 255, 0.8);
-    border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+    color: rgba(255,255,255,0.8);
+    border-bottom: 1px dotted rgba(255,255,255,0.3);
     padding-bottom: 1px;
     transition: color 160ms ease, border-color 160ms ease;
 
@@ -276,16 +299,15 @@ const Metricas = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255,255,255,0.12);
+  animation: ${entradaSobe} 0.6s cubic-bezier(0.22,1,0.36,1) both 480ms;
 
-  @media (max-width: 640px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  @media (max-width: 640px) { grid-template-columns: repeat(2, 1fr); }
 `;
 
 const Metrica = styled.div`
   padding: 20px 14px 6px 0;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255,255,255,0.08);
 
   &:last-child { border-right: none; }
 
@@ -298,13 +320,14 @@ const Metrica = styled.div`
     color: var(--amarelo);
     letter-spacing: -0.03em;
     margin-bottom: 6px;
+    font-variant-numeric: tabular-nums;
   }
 
   span {
     display: block;
     font-size: 0.72rem;
     line-height: 1.45;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255,255,255,0.55);
   }
 
   @media (max-width: 640px) {
@@ -315,13 +338,8 @@ const Metrica = styled.div`
     &:nth-child(4) { border-top: 1px solid rgba(255,255,255,.08); }
 
     strong { font-size: 1.45rem; }
-    span { font-size: 0.68rem; }
+    span   { font-size: 0.68rem; }
   }
-`;
-
-const flutua = keyframes`
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
 `;
 
 const Mockups = styled.div`
@@ -330,6 +348,11 @@ const Mockups = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 480px;
+  animation: ${fadeEntrada} 0.8s ease both 200ms;
+  transition: transform 0.18s ease-out;
+  transform: perspective(1200px)
+    rotateY(${({ $px }) => $px ?? 0}deg)
+    rotateX(${({ $py }) => $py ?? 0}deg);
 
   > div:nth-child(1) {
     position: absolute;
@@ -339,14 +362,12 @@ const Mockups = styled.div`
     z-index: 1;
     max-width: 220px;
     animation: ${flutua} 6s ease-in-out infinite;
-    animation-delay: 0s;
   }
   > div:nth-child(2) {
     position: relative;
     z-index: 3;
     max-width: 280px;
-    animation: ${flutua} 6s ease-in-out infinite;
-    animation-delay: 0.6s;
+    animation: ${flutua} 6s ease-in-out 0.6s infinite;
   }
   > div:nth-child(3) {
     position: absolute;
@@ -355,30 +376,62 @@ const Mockups = styled.div`
     transform: rotate(6deg);
     z-index: 2;
     max-width: 220px;
-    animation: ${flutua} 6s ease-in-out infinite;
-    animation-delay: 1.2s;
+    animation: ${flutua} 6s ease-in-out 1.2s infinite;
   }
 
   @media (max-width: 1100px) {
     min-height: 420px;
-    margin-top: 0;
-
     > div:nth-child(1) { left: 4%; }
     > div:nth-child(3) { right: 4%; }
   }
 
   @media (max-width: 640px) {
-    min-height: 320px;
+    min-height: 290px;
 
-    > div:nth-child(1),
-    > div:nth-child(3) { display: none; }
-
-    > div:nth-child(2) { max-width: 200px; }
+    > div:nth-child(1) {
+      left: 6%;
+      top: 15px;
+      max-width: 132px;
+      opacity: 0.55;
+      transform: rotate(-7deg) scale(0.88);
+    }
+    > div:nth-child(2) { max-width: 172px; }
+    > div:nth-child(3) {
+      right: 6%;
+      top: 25px;
+      max-width: 132px;
+      opacity: 0.55;
+      transform: rotate(7deg) scale(0.88);
+    }
   }
+`;
+
+const ScrollSeta = styled.a`
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  color: rgba(255,255,255,0.45);
+  animation: ${bounce} 2.2s ease-in-out infinite 1.2s;
+  transition: color 200ms, border-color 200ms, background 200ms;
+
+  &:hover {
+    color: var(--amarelo);
+    border-color: rgba(254,199,8,0.5);
+    background: rgba(254,199,8,0.08);
+  }
+
+  @media (max-width: 640px) { display: none; }
 `;
 
 export {
   Secao, Grid, GridDecorativo, Coluna, Kicker, Titulo, AcentoAmarelo, Texto,
   Frentes, Frente, Acoes, BotaoPrimario, BotaoSecundario, LinksSecundarios,
-  Metricas, Metrica, Mockups,
+  Metricas, Metrica, Mockups, ScrollSeta,
 };

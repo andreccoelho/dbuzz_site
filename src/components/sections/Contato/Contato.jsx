@@ -1,9 +1,10 @@
 import React from "react";
+import { Briefcase, Landmark, Tv2 } from "lucide-react";
 import * as S from "./Style";
 
 const FLUXOS = [
   {
-    icon: "🏥",
+    Icon: Briefcase,
     titulo: "Setor Privado",
     desc: "Saúde Digital, Escola Digital, Universidade, Empresas e Comércios. Conte sobre o ambiente, o objetivo de comunicação e o ponto de partida.",
     btn: "Falar com comercial →",
@@ -11,7 +12,7 @@ const FLUXOS = [
     href: "mailto:dbuzzcorporate@gmail.com?subject=Or%C3%A7amento%20Setor%20Privado",
   },
   {
-    icon: "🏛️",
+    Icon: Landmark,
     titulo: "Setor Público",
     desc: "Para órgãos da administração pública direta e indireta interessados em receber a documentação técnica de apoio à análise.",
     btn: "Solicitar documentação →",
@@ -19,7 +20,7 @@ const FLUXOS = [
     href: "mailto:dbuzzcorporate@gmail.com?subject=Documenta%C3%A7%C3%A3o%20T%C3%A9cnica%20-%20Setor%20P%C3%BAblico",
   },
   {
-    icon: "📺",
+    Icon: Tv2,
     titulo: "TV D.Buzz",
     desc: "Anunciantes interessados em pacotes comerciais, plano de mídia e propostas customizadas para a rede comercial privada.",
     btn: "Solicitar mídia kit →",
@@ -39,16 +40,21 @@ const Contato = () => (
       </S.Sub>
 
       <S.Grid>
-        {FLUXOS.map((f, i) => (
-          <S.Card key={i}>
-            <S.Icon aria-hidden="true">{f.icon}</S.Icon>
-            <S.CardTitle>{f.titulo}</S.CardTitle>
-            <S.CardDesc>{f.desc}</S.CardDesc>
-            <S.Btn href={f.href} $tipo={f.btnTipo}>
-              {f.btn}
-            </S.Btn>
-          </S.Card>
-        ))}
+        {FLUXOS.map((f, i) => {
+          const FluxoIcon = f.Icon;
+          return (
+            <S.Card key={i}>
+              <S.Icon aria-hidden="true">
+                <FluxoIcon size={28} />
+              </S.Icon>
+              <S.CardTitle>{f.titulo}</S.CardTitle>
+              <S.CardDesc>{f.desc}</S.CardDesc>
+              <S.Btn href={f.href} $tipo={f.btnTipo}>
+                {f.btn}
+              </S.Btn>
+            </S.Card>
+          );
+        })}
       </S.Grid>
 
       <S.Dados>

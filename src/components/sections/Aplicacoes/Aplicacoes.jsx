@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Stethoscope, GraduationCap, Landmark, Building2, ShoppingBag } from "lucide-react";
 import * as S from "./Style";
 
 const APLICACOES = [
@@ -17,7 +18,7 @@ const APLICACOES = [
       "Campanhas educativas e de vacinação",
     ],
     visual: "v1",
-    icone: "🩺",
+    Icone: Stethoscope,
   },
   {
     id: "escola",
@@ -34,7 +35,7 @@ const APLICACOES = [
       "Redução de ruído na comunicação com famílias",
     ],
     visual: "v2",
-    icone: "🎓",
+    Icone: GraduationCap,
   },
   {
     id: "universidade",
@@ -51,7 +52,7 @@ const APLICACOES = [
       "Integração com calendário institucional",
     ],
     visual: "v3",
-    icone: "🏛️",
+    Icone: Landmark,
   },
   {
     id: "empresas",
@@ -68,7 +69,7 @@ const APLICACOES = [
       "Reforço de cultura e clima organizacional",
     ],
     visual: "v4",
-    icone: "🏢",
+    Icone: Building2,
   },
   {
     id: "comercios",
@@ -85,7 +86,7 @@ const APLICACOES = [
       "Conteúdo customizado para o público local",
     ],
     visual: "v5",
-    icone: "🛍️",
+    Icone: ShoppingBag,
   },
   {
     id: "publico",
@@ -102,13 +103,14 @@ const APLICACOES = [
       "Documentação de apoio à análise jurídica",
     ],
     visual: "v6",
-    icone: "🏛️",
+    Icone: Landmark,
   },
 ];
 
 const Aplicacoes = () => {
   const [ativo, setAtivo] = useState("saude");
   const aplicacao = APLICACOES.find((a) => a.id === ativo);
+  const { Icone } = aplicacao;
 
   return (
     <S.Wrapper id="aplicacoes">
@@ -145,7 +147,7 @@ const Aplicacoes = () => {
             </S.Lista>
           </S.Texto>
           <S.Visual $variante={aplicacao.visual}>
-            <span aria-hidden="true">{aplicacao.icone}</span>
+            <Icone size={52} aria-hidden="true" />
           </S.Visual>
         </S.Pane>
       </S.Container>

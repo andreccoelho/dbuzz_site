@@ -1,32 +1,38 @@
 import React from "react";
+import {
+  Target, Palette, Wrench, Briefcase,
+  Tv2, Landmark, GraduationCap, Stethoscope, ShoppingBag, Building2,
+} from "lucide-react";
 import * as S from "./Style";
 
 const EQUIPE = [
   {
-    avatar: "👤",
+    Avatar: Target,
     nome: "Direção e estratégia",
     cargo: "Liderança comercial e institucional",
     desc: "Definição de portfólio, parcerias e conformidade contratual nas três frentes de atuação.",
   },
   {
-    avatar: "🎨",
+    Avatar: Palette,
     nome: "Curadoria editorial",
     cargo: "Conteúdo institucional customizado",
     desc: "Trilha de produção, calendário e moderação para Setor Privado, Setor Público e TV D.Buzz.",
   },
   {
-    avatar: "🛠️",
+    Avatar: Wrench,
     nome: "Operação técnica",
     cargo: "Infraestrutura e suporte",
     desc: "Instalação, manutenção preventiva e corretiva, monitoramento do parque de Displays de LED.",
   },
   {
-    avatar: "💼",
+    Avatar: Briefcase,
     nome: "Comercial e contas",
     cargo: "Anunciantes e órgãos contratantes",
     desc: "Atendimento a anunciantes da TV D.Buzz e ponto focal para clientes Setor Privado e Setor Público.",
   },
 ];
+
+const IG_ICONS = [Tv2, Landmark, GraduationCap, Stethoscope, ShoppingBag, Building2];
 
 const Equipe = () => (
   <S.Wrapper id="equipe">
@@ -39,14 +45,19 @@ const Equipe = () => (
       </S.Sub>
 
       <S.Grid>
-        {EQUIPE.map((m, i) => (
-          <S.Card key={i}>
-            <S.Avatar aria-hidden="true">{m.avatar}</S.Avatar>
-            <S.Nome>{m.nome}</S.Nome>
-            <S.Cargo>{m.cargo}</S.Cargo>
-            <S.Desc>{m.desc}</S.Desc>
-          </S.Card>
-        ))}
+        {EQUIPE.map((m, i) => {
+          const AvatarIcon = m.Avatar;
+          return (
+            <S.Card key={i}>
+              <S.Avatar aria-hidden="true">
+                <AvatarIcon size={28} />
+              </S.Avatar>
+              <S.Nome>{m.nome}</S.Nome>
+              <S.Cargo>{m.cargo}</S.Cargo>
+              <S.Desc>{m.desc}</S.Desc>
+            </S.Card>
+          );
+        })}
       </S.Grid>
 
       <S.IgBox>
@@ -57,9 +68,9 @@ const Equipe = () => (
         </S.IgDesc>
 
         <S.IgGrid>
-          {Array.from({ length: 6 }).map((_, i) => (
+          {IG_ICONS.map((IgIcon, i) => (
             <S.IgPlaceholder key={i} aria-hidden="true">
-              {["📺", "🏛️", "🎓", "🩺", "🛍️", "🏢"][i]}
+              <IgIcon size={22} />
             </S.IgPlaceholder>
           ))}
         </S.IgGrid>

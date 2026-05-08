@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Nav, Container, LogoLink, MenuLista, ItemMenu, BotaoCta, MenuMobile, Backdrop } from "./Style";
+import { scrollTo } from "../../utils/scroll";
 
 const links = [
   { id: "sobre",        label: "Sobre" },
@@ -10,15 +11,9 @@ const links = [
   { id: "tv-dbuzz",     label: "TV D.Buzz" },
   { id: "portfolio",    label: "Portfólio" },
   { id: "governanca",   label: "Governança" },
+  { id: "equipe",       label: "Equipe" },
 ];
 
-const scrollTo = (id) => {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const offset = 70;
-  const top = el.getBoundingClientRect().top + window.scrollY - offset;
-  window.scrollTo({ top, behavior: "smooth" });
-};
 
 const Header = () => {
   const [aberto, setAberto] = useState(false);

@@ -111,6 +111,7 @@ const CardTopo = styled.div`
     letter-spacing: 0.14em;
     color: rgba(255, 255, 255, 0.55);
     margin-bottom: 8px;
+    margin-left: 1em;
   }
 
   h3 {
