@@ -102,7 +102,7 @@ const Titulo = styled.h1`
   margin-bottom: 20px;
   animation: ${entradaSobe} 0.6s cubic-bezier(0.22,1,0.36,1) both 80ms;
 
-  @media (max-width: 640px) { margin-bottom: 16px; font-size: 38px; }
+  @media (max-width: 640px) { margin-bottom: 16px; font-size: 38px; text-align: center; }
 `;
 
 const AcentoAmarelo = styled.span`
@@ -135,7 +135,7 @@ const Texto = styled.p`
   }
 `;
 
-const Frentes = styled.ul`
+const Frentes = styled.div`
   list-style: none;
   padding: 0;
   margin: 0 0 28px;
@@ -148,11 +148,13 @@ const Frentes = styled.ul`
     grid-template-columns: 1fr;
     gap: 8px;
     margin-bottom: 24px;
+    
   }
 `;
 
-const Frente = styled.li`
+const Frente = styled.a`
   position: relative;
+  display: block;
   padding: 12px 14px 12px 28px;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
@@ -161,7 +163,8 @@ const Frente = styled.li`
   font-weight: 600;
   color: #fff;
   line-height: 1.4;
-  cursor: default;
+  text-decoration: none;
+  cursor: pointer;
   transition: background 200ms ease, transform 200ms ease;
 
   &:hover {
@@ -406,6 +409,30 @@ const Mockups = styled.div`
   }
 `;
 
+const PhoneDots = styled.div`
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 24px;
+
+  @media (max-width: 640px) { margin-top: 16px; }
+`;
+
+const PhoneDot = styled.button`
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: ${({ $ativo }) => $ativo ? "var(--amarelo)" : "rgba(255,255,255,0.25)"};
+  border: none;
+  cursor: pointer;
+  transition: background 200ms, transform 200ms;
+  padding: 0;
+  flex-shrink: 0;
+
+  &:hover { background: rgba(254,199,8,0.7); transform: scale(1.25); }
+  ${({ $ativo }) => $ativo && "transform: scale(1.25);"}
+`;
+
 const ScrollSeta = styled.a`
   position: absolute;
   bottom: 28px;
@@ -433,5 +460,5 @@ const ScrollSeta = styled.a`
 export {
   Secao, Grid, GridDecorativo, Coluna, Kicker, Titulo, AcentoAmarelo, Texto,
   Frentes, Frente, Acoes, BotaoPrimario, BotaoSecundario, LinksSecundarios,
-  Metricas, Metrica, Mockups, ScrollSeta,
+  Metricas, Metrica, Mockups, ScrollSeta, PhoneDots, PhoneDot,
 };

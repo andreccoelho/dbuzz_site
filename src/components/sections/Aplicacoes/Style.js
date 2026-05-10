@@ -26,7 +26,7 @@ export const Label = styled.span`
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: ${theme.cores.amarelo};
+  color: #9a6f00;
   margin-bottom: 0.6rem;
 `;
 
@@ -55,7 +55,7 @@ export const Tabs = styled.div`
   margin-bottom: 1.8rem;
 
   @media (max-width: ${theme.breakpoints.mobile}) {
-    gap: 0.35rem;
+    gap: 0.35rem;  justify-content: center;
   }
 `;
 
@@ -156,7 +156,7 @@ export const Item = styled.li`
 
   &::before {
     content: "✓";
-    color: ${theme.cores.amarelo};
+    color: #9a6f00;
     font-weight: 700;
     flex-shrink: 0;
   }

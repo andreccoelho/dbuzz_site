@@ -149,7 +149,7 @@ export const KitG = styled.div`
   gap: 0.45rem;
   margin: 1.1rem 0;
 
-  @media (max-width: ${theme.breakpoints.tablet}) {
+  @media (max-width: 400px) {
     grid-template-columns: 1fr;
   }
 `;

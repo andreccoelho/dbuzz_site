@@ -45,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    scroll-padding-top: 70px;
+    scroll-padding-top: 82px;
   }
 
   body {

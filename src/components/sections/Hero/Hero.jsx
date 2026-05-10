@@ -1,62 +1,58 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { ArrowRight, FileText, ChevronDown } from "lucide-react";
 import { scrollTo } from "../../../utils/scroll";
 import DisplayVertical from "../../ui/DisplayVertical/DisplayVertical";
 import {
-  Secao, Grid, GridDecorativo, Coluna, Kicker, Titulo, AcentoAmarelo,
-  Texto, Frentes, Frente, Acoes, BotaoPrimario, BotaoSecundario,
-  LinksSecundarios, Metricas, Metrica, Mockups, ScrollSeta,
+  Secao, Grid, GridDecorativo, Coluna, Titulo, AcentoAmarelo,
+  Frentes, Frente, Acoes, BotaoPrimario, BotaoSecundario,
+  LinksSecundarios, Mockups, ScrollSeta, PhoneDots, PhoneDot,
 } from "./Style";
 
-const METRICAS = [
-  { num: 50,  pre: "",  suf: "+",    label: "Displays de LED verticais indoor em operação" },
-  { num: 15,  pre: "~", suf: " min", label: "Looping médio de programação da TV D.Buzz" },
-  { num: 72,  pre: "",  suf: "h",    label: "Prazo de recomposição operacional crítica" },
-  { num: 2,   pre: "",  suf: "",     label: "Mercados — setor privado e setor público" },
+const PHONES = [
+  {
+    tom: "verde",
+    selo: "Saúde Digital",
+    rodape: "Espera Inteligente",
+    content: (
+      <>
+        <strong>Bem-vindo</strong>
+        Espera Inteligente
+        <small>Sua consulta está confirmada. Em breve você será chamado.</small>
+      </>
+    ),
+  },
+  {
+    tom: "azul",
+    selo: "Setor Público",
+    rodape: "Comunicação ao cidadão",
+    content: (
+      <>
+        <strong>Canal<br />Cidadão</strong>
+        <small>
+          Documentação técnica de apoio à análise do órgão público competente. Comunicação
+          institucional, campanhas e utilidade pública.
+        </small>
+      </>
+    ),
+  },
+  {
+    tom: "laranja",
+    selo: "TV D.Buzz",
+    rodape: "Looping de 15 minutos",
+    content: (
+      <>
+        <strong>50+</strong>
+        telas em pontos de alto tráfego na região.
+        <small>Seu anúncio visto por milhares de pessoas por dia. Fale com a D.Buzz.</small>
+      </>
+    ),
+  },
 ];
 
-function useContador(alvo, ativo, dur = 1400) {
-  const [val, setVal] = useState(0);
-  useEffect(() => {
-    if (!ativo) return;
-    let t0 = null;
-    const step = (ts) => {
-      if (!t0) t0 = ts;
-      const p = Math.min((ts - t0) / dur, 1);
-      setVal(Math.floor((1 - Math.pow(1 - p, 3)) * alvo));
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [ativo]);
-  return val;
-}
-
-const MetricaItem = ({ num, pre, suf, label, ativo }) => {
-  const val = useContador(num, ativo);
-  return (
-    <Metrica>
-      <strong>{pre}{val}{suf}</strong>
-      <span>{label}</span>
-    </Metrica>
-  );
-};
-
 const Hero = () => {
-  const [ativarMetricas, setAtivarMetricas] = useState(false);
-  const metricasRef = useRef(null);
   const [px, setPx] = useState(0);
   const [py, setPy] = useState(0);
-
-  useEffect(() => {
-    const el = metricasRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setAtivarMetricas(true); },
-      { threshold: 0.4 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+  const [centerIdx, setCenterIdx] = useState(1);
 
   const onMove = useCallback((e) => {
     const r = e.currentTarget.getBoundingClientRect();
@@ -65,6 +61,9 @@ const Hero = () => {
   }, []);
 
   const onLeave = useCallback(() => { setPx(0); setPy(0); }, []);
+
+  const leftIdx  = (centerIdx - 1 + 3) % 3;
+  const rightIdx = (centerIdx + 1) % 3;
 
   return (
     <Secao id="inicio" onMouseMove={onMove} onMouseLeave={onLeave}>
@@ -77,20 +76,26 @@ const Hero = () => {
             <AcentoAmarelo>anunciantes</AcentoAmarelo> e órgãos públicos.
           </Titulo>
 
-          <Texto>
-            A D.Buzz Corporate estrutura, opera e acompanha canais de comunicação visual em
-            ambientes físicos — produção de conteúdo customizado, gestão remota de grade,
-            suporte técnico e infraestrutura dedicada do início ao fim.
-          </Texto>
-
           <Frentes aria-label="Três frentes de atuação">
-            <Frente $cor="verde">
+            <Frente
+              $cor="verde"
+              href="#aplicacoes"
+              onClick={(e) => { e.preventDefault(); scrollTo("aplicacoes"); }}
+            >
               <span />Setor privado<br /><em>consultórios, escolas, empresas e comércios</em>
             </Frente>
-            <Frente $cor="azul">
+            <Frente
+              $cor="azul"
+              href="#setor-publico"
+              onClick={(e) => { e.preventDefault(); scrollTo("setor-publico"); }}
+            >
               <span />Setor público<br /><em>órgãos federais, estaduais e municipais</em>
             </Frente>
-            <Frente $cor="laranja">
+            <Frente
+              $cor="laranja"
+              href="#tv-dbuzz"
+              onClick={(e) => { e.preventDefault(); scrollTo("tv-dbuzz"); }}
+            >
               <span />TV D.Buzz<br /><em>50+ Displays de LED em locais comerciais</em>
             </Frente>
           </Frentes>
@@ -111,35 +116,40 @@ const Hero = () => {
               <FileText size={14} /> Solicitar documentação técnica
             </a>
           </LinksSecundarios>
-
-          <Metricas ref={metricasRef}>
-            {METRICAS.map((m, i) => (
-              <MetricaItem key={i} {...m} ativo={ativarMetricas} />
-            ))}
-          </Metricas>
         </Coluna>
 
-        <Mockups aria-hidden="true" $px={px} $py={py}>
-          <DisplayVertical tom="verde" selo="Saúde Digital" rodape="Espera Inteligente">
-            <strong>Bem-vindo</strong>
-            Espera Inteligente
-            <small>Sua consulta está confirmada. Em breve você será chamado.</small>
-          </DisplayVertical>
+        <div>
+          <Mockups aria-hidden="true" $px={px} $py={py}>
+            <div style={{ cursor: "pointer" }} onClick={() => setCenterIdx(leftIdx)}>
+              <DisplayVertical tom={PHONES[leftIdx].tom} selo={PHONES[leftIdx].selo} rodape={PHONES[leftIdx].rodape}>
+                {PHONES[leftIdx].content}
+              </DisplayVertical>
+            </div>
 
-          <DisplayVertical tom="azul" selo="Setor Público" rodape="Comunicação ao cidadão">
-            <strong>Canal<br />Cidadão</strong>
-            <small>
-              Documentação técnica de apoio à análise do órgão público competente. Comunicação
-              institucional, campanhas e utilidade pública.
-            </small>
-          </DisplayVertical>
+            <div>
+              <DisplayVertical tom={PHONES[centerIdx].tom} selo={PHONES[centerIdx].selo} rodape={PHONES[centerIdx].rodape}>
+                {PHONES[centerIdx].content}
+              </DisplayVertical>
+            </div>
 
-          <DisplayVertical tom="laranja" selo="TV D.Buzz" rodape="Looping de ~15 min">
-            <strong>50+</strong>
-            telas em pontos de alto tráfego na região.
-            <small>Seu anúncio visto por milhares de pessoas por dia. Fale com a D.Buzz.</small>
-          </DisplayVertical>
-        </Mockups>
+            <div style={{ cursor: "pointer" }} onClick={() => setCenterIdx(rightIdx)}>
+              <DisplayVertical tom={PHONES[rightIdx].tom} selo={PHONES[rightIdx].selo} rodape={PHONES[rightIdx].rodape}>
+                {PHONES[rightIdx].content}
+              </DisplayVertical>
+            </div>
+          </Mockups>
+
+          <PhoneDots>
+            {PHONES.map((phone, i) => (
+              <PhoneDot
+                key={i}
+                $ativo={i === centerIdx}
+                onClick={() => setCenterIdx(i)}
+                aria-label={`Ver ${phone.selo}`}
+              />
+            ))}
+          </PhoneDots>
+        </div>
       </Grid>
 
       <ScrollSeta href="#sobre" aria-label="Ir para próxima seção" onClick={(e) => { e.preventDefault(); scrollTo("sobre"); }}>

@@ -39,7 +39,7 @@ const Kicker = styled.span`
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--amarelo);
+  color: #9a6f00;
   margin-bottom: 14px;
 `;
 
@@ -238,7 +238,7 @@ const Valores = styled.div`
     padding-top: 36px;
 
     ul {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 8px;
     }
   }
@@ -252,7 +252,7 @@ const ValorPil = styled.li`
   background: #fff;
   border: 1px solid var(--borda);
   border-radius: 3px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--texto);
   min-height: 48px;

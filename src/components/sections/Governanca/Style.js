@@ -21,7 +21,7 @@ export const Label = styled.span`
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: ${theme.cores.amarelo};
+  color: #9a6f00;
   margin-bottom: 0.6rem;
 `;
 
@@ -70,6 +70,12 @@ export const Lista = styled.ul`
   gap: 0.62rem;
   margin-top: 0.9rem;
   padding: 0;
+
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
 `;
 
 export const Item = styled.li`

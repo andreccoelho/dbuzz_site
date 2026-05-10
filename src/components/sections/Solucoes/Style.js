@@ -36,7 +36,7 @@ const Kicker = styled.span`
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--amarelo);
+  color: #9a6f00;
   margin-bottom: 14px;
 `;
 
@@ -197,7 +197,7 @@ const ItemLista = styled.li`
     top: 0;
     font-family: var(--fonte-corpo);
     font-weight: 500;
-    color: var(--amarelo);
+    color: #9a6f00;
   }
 `;
 
@@ -210,7 +210,7 @@ const CardLink = styled.a`
   font-family: var(--fonte-corpo);
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--amarelo);
+  color: #9a6f00;
   border-bottom: 1px solid currentColor;
   align-self: flex-start;
   transition: gap 200ms ease;

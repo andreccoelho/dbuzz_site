@@ -22,14 +22,14 @@ const Nav = styled.nav`
 const Container = styled.div`
   max-width: 1280px;
   margin: 0 auto;
-  height: 64px;
+  height: 76px;
   padding: 0 24px;
   display: flex;
   align-items: center;
   gap: 28px;
 
   @media (max-width: 900px) {
-    height: 58px;
+    height: 70px;
     padding: 0 18px;
     gap: 12px;
   }
@@ -41,9 +41,13 @@ const LogoLink = styled.a`
   flex-shrink: 0;
 
   img {
-    height: 40px;
+    height: 48px;
     width: auto;
     object-fit: contain;
+
+    @media (max-width: 900px) {
+      height: 52px;
+    }
   }
 `;
 
@@ -59,7 +63,7 @@ const MenuLista = styled.ul`
 
   @media (max-width: 900px) {
     position: fixed;
-    top: 58px;
+    top: 70px;
     left: 0;
     right: 0;
     flex-direction: column;
@@ -148,7 +152,7 @@ const Backdrop = styled.div`
   @media (max-width: 900px) {
     display: block;
     position: fixed;
-    top: 58px;
+    top: 70px;
     left: 0;
     right: 0;
     bottom: 0;
