@@ -62,7 +62,7 @@ const Solucoes = () => (
   <Secao id="solucoes">
     <Container>
       <Cabecalho>
-        <Kicker>Soluções · 02</Kicker>
+        <Kicker>Soluções</Kicker>
         <Titulo>Três frentes de atuação, três finalidades distintas.</Titulo>
         <Lead>
           A atuação da D.Buzz está organizada em três frentes complementares — cada uma com público,

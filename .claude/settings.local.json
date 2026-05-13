@@ -8,7 +8,9 @@
       "PowerShell(Write-Output \"=== PUBLIC CONTENTS ===\"; Get-ChildItem -Path \"C:\\\\Users\\\\André Costa\\\\dbuzz_site\\\\public\" -Recurse -Force | Select-Object @{Name=\"Path\"; Expression={$_.FullName.Replace\\(\"C:\\\\Users\\\\André Costa\\\\dbuzz_site\\\\public\\\\\", \"\"\\)}} | ForEach-Object {$_.Path})",
       "WebFetch(domain:screencloud.com)",
       "WebSearch",
-      "WebFetch(domain:www.instagram.com)"
+      "WebFetch(domain:www.instagram.com)",
+      "Bash(git -C \"C:\\\\Users\\\\André Costa\\\\dbuzz_site\" show HEAD:src/components/Header/Header.jsx)",
+      "Bash(git *)"
     ]
   }
 }

@@ -2,6 +2,22 @@ import React from "react";
 import { Stethoscope, GraduationCap, Landmark, Building2, ShoppingBag, Tv2 } from "lucide-react";
 import * as S from "./Style";
 
+const LOGOS = [
+  { src: "/imagens/logos_clientes/logotopo20260511224556307_preto.png",    alt: "Cliente"  },
+  { src: "/imagens/logos_clientes/EG_preto.png",                           alt: "EG"       },
+  { src: "/imagens/logos_clientes/japeri-logo_preto.png",                  alt: "Japeri"   },
+  { src: "/imagens/logos_clientes/logo-vianense-1024x291_preto.png",       alt: "Vianense" },
+  { src: "/imagens/logos_clientes/cropped-icone_ibad_autopecas_rio_de_janeiro-e1568727625378_preto.png", alt: "IBAD" },
+  { src: "/imagens/logos_clientes/logo_preto.png",                         alt: "Cliente"  },
+  { src: "/imagens/logos_clientes/rdlaypopupogimage_preto.png",            alt: "RD Lay"   },
+  { src: "/imagens/logos_clientes/unnamed_preto.png",                      alt: "Cliente"  },
+  { src: "/imagens/logos_clientes/images_preto.png",                       alt: "Cliente"  },
+  { src: "/imagens/logos_clientes/images_preto_2.png",                     alt: "Cliente"  },
+  { src: "/imagens/logos_clientes/images (1)_preto.png",                   alt: "Cliente"  },
+  { src: "/imagens/logos_clientes/images (2)_preto.png",                   alt: "Cliente"  },
+  { src: "/imagens/logos_clientes/Captura de tela 2026-05-12 212049_preto.png", alt: "Cliente" },
+];
+
 const CASES = [
   {
     img: "pi1",
@@ -91,6 +107,17 @@ const Portfolio = () => (
           );
         })}
       </S.Grid>
+
+      <S.ClientesFaixa>
+        <S.ClientesLabel>Clientes que confiam na D.Buzz</S.ClientesLabel>
+        <S.Track aria-hidden="true">
+          {[...LOGOS, ...LOGOS].map((logo, i) => (
+            <S.LogoItem key={i}>
+              <img src={logo.src} alt={logo.alt} loading="lazy" />
+            </S.LogoItem>
+          ))}
+        </S.Track>
+      </S.ClientesFaixa>
     </S.Container>
   </S.Wrapper>
 );

@@ -179,7 +179,7 @@ const TiposConteudo = () => (
   <Secao id="tipos-conteudo">
     <Container>
       <Cabecalho>
-        <Kicker>O que vai na tela · 02.5</Kicker>
+        <Kicker>O que vai na tela</Kicker>
         <Titulo>10 tipos de conteúdo que a D.Buzz gerencia</Titulo>
         <Lead>
           Cada ambiente pede uma abordagem diferente. A D.Buzz produz, agenda e atualiza

@@ -21,7 +21,7 @@ const Sobre = () => (
   <Secao id="sobre">
     <Container>
       <Cabecalho>
-        <Kicker>Sobre · 01</Kicker>
+        <Kicker>Sobre Nós</Kicker>
         <Titulo>Especialista em comunicação presencial gerenciada.</Titulo>
         <Lead>
           A D.Buzz Corporate e Serviços Ltda. é uma empresa especializada em comunicação presencial

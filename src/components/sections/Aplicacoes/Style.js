@@ -162,18 +162,36 @@ export const Item = styled.li`
   }
 `;
 
-export const Visual = styled.div`
-  border-radius: 6px;
-  min-height: 220px;
+export const TvWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  aspect-ratio: 750 / 433;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3.5rem;
+  animation: ${fade} 0.35s ease-out;
+`;
+
+export const TvScreen = styled.div`
+  position: absolute;
+  inset: 3.4% 3.1% 9.5% 3.3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--cinza-100);
-  border: 1px solid var(--cinza-200);
+  font-size: 3.5rem;
 
   @media (max-width: ${theme.breakpoints.mobile}) {
-    min-height: 160px;
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
+`;
+
+export const TvMoldura = styled.img`
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  z-index: 1;
 `;

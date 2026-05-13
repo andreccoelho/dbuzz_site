@@ -146,9 +146,12 @@ const Aplicacoes = () => {
               ))}
             </S.Lista>
           </S.Texto>
-          <S.Visual $variante={aplicacao.visual}>
-            <Icone size={52} aria-hidden="true" />
-          </S.Visual>
+          <S.TvWrapper>
+            <S.TvScreen>
+              <Icone size={52} aria-hidden="true" />
+            </S.TvScreen>
+            <S.TvMoldura src="/imagens/moldura.png" aria-hidden="true" />
+          </S.TvWrapper>
         </S.Pane>
       </S.Container>
     </S.Wrapper>

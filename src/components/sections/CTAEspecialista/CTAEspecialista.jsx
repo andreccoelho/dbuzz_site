@@ -131,19 +131,6 @@ const CTAEspecialista = () => (
         Conte o ambiente, o objetivo e o ponto de partida. A D.Buzz estrutura a proposta
         técnica e comercial sob medida, sem compromisso.
       </Sub>
-
-      <Acoes>
-        <BtnPrimario href="mailto:dbuzzcorporate@gmail.com?subject=Contato D.Buzz Corporate">
-          Falar com a D.Buzz <ArrowRight size={18} />
-        </BtnPrimario>
-
-        <BtnSecundario
-          href="#portfolio"
-          onClick={(e) => { e.preventDefault(); scrollTo("portfolio"); }}
-        >
-          Ver portfólio
-        </BtnSecundario>
-      </Acoes>
     </Inner>
   </Wrap>
 );

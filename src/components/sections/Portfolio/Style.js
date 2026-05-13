@@ -144,3 +144,53 @@ export const Tag = styled.span`
   background: ${theme.cores.bg};
   color: ${theme.cores.sub};
 `;
+
+export const ClientesFaixa = styled.div`
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid ${theme.cores.borda};
+  overflow: hidden;
+
+  @keyframes portfolio-slide {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+`;
+
+export const ClientesLabel = styled.p`
+  font-family: ${theme.fontes.titulo};
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #999;
+  margin: 0 0 1.5rem;
+`;
+
+export const Track = styled.div`
+  display: flex;
+  width: max-content;
+  animation: portfolio-slide 32s linear infinite;
+`;
+
+export const LogoItem = styled.div`
+  flex-shrink: 0;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-height: 46px;
+    max-width: 130px;
+    filter: grayscale(1) opacity(0.5);
+    transition: filter 0.25s;
+  }
+
+  &:hover img {
+    filter: grayscale(0) opacity(1);
+  }
+`;

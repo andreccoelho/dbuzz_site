@@ -129,19 +129,21 @@ export const Card = styled.div`
   padding: 1.8rem;
 `;
 
-export const Screen = styled.div`
-  background: #000;
-  border-radius: ${theme.raio.md};
-  aspect-ratio: 9 / 16;
-  max-width: 190px;
+export const TvFrame = styled.div`
+  position: relative;
+  width: 190px;
+  aspect-ratio: 433 / 750;
   margin: 0 auto 1.4rem;
+`;
+
+export const TvContent = styled.div`
+  position: absolute;
+  inset: 0.9% 1.6% 0.9% 2.3%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  border: 2px solid rgba(255, 255, 255, 0.14);
-  position: relative;
   overflow: hidden;
 
   &::before {
@@ -154,6 +156,16 @@ export const Screen = styled.div`
       transparent 100%
     );
   }
+`;
+
+export const TvMoldura2 = styled.img`
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  z-index: 1;
 `;
 
 export const Bars = styled.div`
@@ -197,10 +209,8 @@ export const ScreenLbl = styled.div`
 `;
 
 export const Anunc = styled.div`
-  background: rgba(255, 255, 255, 0.06);
   border-radius: ${theme.raio.md};
   padding: 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.11);
   margin-top: 1.3rem;
 `;
 

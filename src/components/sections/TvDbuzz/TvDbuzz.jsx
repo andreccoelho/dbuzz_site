@@ -45,17 +45,20 @@ const TvDbuzz = () => (
         </div>
 
         <S.Card>
-          <S.Screen aria-hidden="true">
-            <S.Bars>
-              {Array.from({ length: 7 }).map((_, i) => (
-                <S.Bar key={i} $i={i} />
-              ))}
-            </S.Bars>
-            <S.ScreenLbl>
-              <strong>TV D.Buzz</strong>
-              Display vertical 9:16
-            </S.ScreenLbl>
-          </S.Screen>
+          <S.TvFrame aria-hidden="true">
+            <S.TvContent>
+              <S.Bars>
+                {Array.from({ length: 7 }).map((_, i) => (
+                  <S.Bar key={i} $i={i} />
+                ))}
+              </S.Bars>
+              <S.ScreenLbl>
+                <strong>TV D.Buzz</strong>
+                Display vertical 9:16
+              </S.ScreenLbl>
+            </S.TvContent>
+            <S.TvMoldura2 src="/imagens/moldura2.png" />
+          </S.TvFrame>
 
           <S.Anunc>
             <S.AnuncTitle>Anuncie na TV D.Buzz</S.AnuncTitle>
