@@ -119,7 +119,8 @@ const Aplicacoes = () => {
         <S.Title>Por onde a comunicação acontece</S.Title>
         <S.Sub>
           Cada ambiente pede um cuidado diferente com o conteúdo. Selecione o
-          contexto para ver como o DBuzz Control Signage organiza a entrega.
+          contexto para ver como a D.Buzz organiza a entrega completa — conteúdo,
+          operação e gestão remota.
         </S.Sub>
 
         <S.Tabs>
