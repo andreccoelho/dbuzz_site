@@ -165,16 +165,18 @@ export const Item = styled.li`
 export const TvWrapper = styled.div`
   position: relative;
   width: 100%;
-  aspect-ratio: 750 / 433;
+  max-width: 280px;
+  aspect-ratio: 433 / 750;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
   animation: ${fade} 0.35s ease-out;
 `;
 
 export const TvScreen = styled.div`
   position: absolute;
-  inset: 3.4% 3.1% 9.5% 3.3%;
+  inset: 0.9% 1.6% 0.9% 2.3%;
   display: flex;
   align-items: center;
   justify-content: center;
