@@ -91,7 +91,6 @@ const Clientes = () => {
   return (
     <Wrap id="clientes">
       <Topo>
-        <Kicker>Clientes · 09</Kicker>
         <Titulo>Empresas e instituições que confiam na D.Buzz</Titulo>
       </Topo>
 
