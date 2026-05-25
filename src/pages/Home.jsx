@@ -2,6 +2,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Hero from "../components/sections/Hero/Hero";
 import Gancho from "../components/sections/Gancho/Gancho";
+import Clientes from "../components/sections/Clientes/Clientes";
 import Sobre from "../components/sections/Sobre/Sobre";
 import Solucoes from "../components/sections/Solucoes/Solucoes";
 import TiposConteudo from "../components/sections/TiposConteudo/TiposConteudo";
@@ -21,6 +22,7 @@ const Home = () => (
     <main>
       <Hero />
       <Gancho />
+      <Clientes />
       <Sobre />
       <Solucoes />
       <TiposConteudo />
