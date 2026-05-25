@@ -11,7 +11,7 @@ const valores = [
   "Conteúdo com sentido para as pessoas",
   "Continuidade operacional",
   "Rastreabilidade e evidências",
-  "Segurança jurídica e respeito ao processo público",
+  "Segurança jurídica e LGPD",
   "Integração da solução",
   "Inovação com utilidade",
   "Compromisso com a experiência humana",
