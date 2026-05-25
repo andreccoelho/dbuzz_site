@@ -15,9 +15,9 @@ const PHONES = [
     rodape: "Espera Inteligente",
     content: (
       <>
-        <strong>Bem-vindo</strong>
-        Espera Inteligente
-        <small>Sua consulta está confirmada. Em breve você será chamado.</small>
+        <strong>Espera<br />Inteligente</strong>
+        Conteúdo educativo e institucional para clínicas, escolas e empresas.
+        <small>Gerenciado remotamente pela D.Buzz.</small>
       </>
     ),
   },
@@ -28,10 +28,8 @@ const PHONES = [
     content: (
       <>
         <strong>Canal<br />Cidadão</strong>
-        <small>
-          Documentação técnica de apoio à análise do órgão público competente. Comunicação
-          institucional, campanhas e utilidade pública.
-        </small>
+        Comunicação pública presencial gerenciada — 100% institucional.
+        <small>Sem publicidade. Solução integrada end-to-end.</small>
       </>
     ),
   },
@@ -42,8 +40,8 @@ const PHONES = [
     content: (
       <>
         <strong>50+</strong>
-        telas em pontos de alto tráfego na região.
-        <small>Seu anúncio visto por milhares de pessoas por dia. Fale com a D.Buzz.</small>
+        telas em pontos de alto tráfego no Rio de Janeiro.
+        <small>Seu anúncio visto por milhares de pessoas por dia.</small>
       </>
     ),
   },
