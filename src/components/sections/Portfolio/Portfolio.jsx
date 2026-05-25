@@ -60,9 +60,9 @@ const CASES = [
     Icon: Tv2,
     badge: "TV D.Buzz",
     badgeTipo: "tv",
-    titulo: "TV D.Buzz — rede comercial Baixada Fluminense",
+    titulo: "TV D.Buzz — rede comercial Rio de Janeiro",
     desc: "Operação contínua da rede comercial privada com 50+ Displays de LED verticais indoor distribuídos em pontos de alta circulação em dois mercados.",
-    tags: ["TV D.Buzz", "Rede", "Baixada"],
+    tags: ["TV D.Buzz", "Rede", "Rio de Janeiro"],
   },
   {
     img: "pi6",
