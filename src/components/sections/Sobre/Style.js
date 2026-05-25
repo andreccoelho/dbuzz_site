@@ -74,7 +74,14 @@ const Grid = styled.div`
   }
 `;
 
-const ColunaTexto = styled.div``;
+const ColunaTexto = styled.div`
+  max-width: 820px;
+  margin: 0 auto 72px;
+
+  @media (max-width: 900px) {
+    margin-bottom: 48px;
+  }
+`;
 
 const ColunaInstitucional = styled.aside``;
 

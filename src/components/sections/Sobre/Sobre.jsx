@@ -1,7 +1,6 @@
-import { Building2, Mail, MapPin, Instagram } from "lucide-react";
 import {
-  Secao, Container, Cabecalho, Kicker, Titulo, Lead, Grid, ColunaTexto, ColunaInstitucional,
-  Paragrafo, BlocoDados, ItemDado, Rotulo, Valor, MissaoVisao, MV, Valores, ValorPil,
+  Secao, Container, Cabecalho, Kicker, Titulo, Lead, ColunaTexto,
+  Paragrafo, MissaoVisao, MV, Valores, ValorPil,
 } from "./Style";
 
 const valores = [
@@ -31,8 +30,7 @@ const Sobre = () => (
         </Lead>
       </Cabecalho>
 
-      <Grid>
-        <ColunaTexto>
+      <ColunaTexto>
           <Paragrafo>
             A D.Buzz transforma espaços físicos de atendimento, circulação e relacionamento em
             canais permanentes de informação, orientação, campanhas, avisos, entretenimento,
@@ -66,67 +64,6 @@ const Sobre = () => (
             </MV>
           </MissaoVisao>
         </ColunaTexto>
-
-        <ColunaInstitucional>
-          <BlocoDados>
-            <Kicker as="div">Dados institucionais</Kicker>
-
-            <ItemDado>
-              <Building2 size={16} />
-              <div>
-                <Rotulo>Razão social</Rotulo>
-                <Valor>D.Buzz Corporate e Serviços Ltda.</Valor>
-              </div>
-            </ItemDado>
-
-            <ItemDado>
-              <span className="num-mark">CNPJ</span>
-              <div>
-                <Rotulo>Cadastro Nacional de Pessoa Jurídica</Rotulo>
-                <Valor className="num">07.835.957/0001-05</Valor>
-                <small>I.E. 78.066.172</small>
-              </div>
-            </ItemDado>
-
-            <ItemDado>
-              <MapPin size={16} />
-              <div>
-                <Rotulo>Endereço</Rotulo>
-                <Valor>
-                  Rua Ivan Vigne, 80 — Sala 112<br />
-                  Centro, Nova Iguaçu/RJ — CEP 26.255-160
-                </Valor>
-              </div>
-            </ItemDado>
-
-            <ItemDado>
-              <Mail size={16} />
-              <div>
-                <Rotulo>E-mail</Rotulo>
-                <Valor>
-                  <a href="mailto:dbuzzcorporate@gmail.com">dbuzzcorporate@gmail.com</a>
-                </Valor>
-              </div>
-            </ItemDado>
-
-            <ItemDado>
-              <Instagram size={16} />
-              <div>
-                <Rotulo>Instagram</Rotulo>
-                <Valor>
-                  <a
-                    href="https://www.instagram.com/dbuzz.corporate/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    @dbuzz.corporate
-                  </a>
-                </Valor>
-              </div>
-            </ItemDado>
-          </BlocoDados>
-        </ColunaInstitucional>
-      </Grid>
 
       <Valores>
         <Kicker as="div">Valores</Kicker>
