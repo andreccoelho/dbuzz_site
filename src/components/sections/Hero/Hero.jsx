@@ -112,7 +112,7 @@ const Hero = () => {
           <LinksSecundarios>
             <a href="#tv-dbuzz" onClick={(e) => { e.preventDefault(); scrollTo("tv-dbuzz"); }}>Anunciar na TV D.Buzz</a>
             <span aria-hidden="true">·</span>
-            <a href="mailto:dbuzzcorporate@gmail.com?subject=Documentação Setor Público">
+            <a href="#setor-publico" onClick={(e) => { e.preventDefault(); scrollTo("setor-publico"); }}>
               <FileText size={14} /> Solicitar documentação técnica
             </a>
           </LinksSecundarios>
