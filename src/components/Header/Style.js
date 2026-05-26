@@ -22,7 +22,7 @@ const Nav = styled.nav`
 const Container = styled.div`
   max-width: 1280px;
   margin: 0 auto;
-  height: 76px;
+  height: 90px;
   padding: 0 24px;
   display: flex;
   align-items: center;
@@ -41,12 +41,12 @@ const LogoLink = styled.a`
   flex-shrink: 0;
 
   img {
-    height: 48px;
+    height: 76px;
     width: auto;
     object-fit: contain;
 
     @media (max-width: 900px) {
-      height: 52px;
+      height: 68px;
     }
   }
 `;

@@ -20,7 +20,7 @@ const Footer = () => {
       <Container>
         <ColunaLogo>
           <Logo>
-            <img src="/imagens/logo-1.png" alt="D.Buzz Corporate" />
+            <img src="/imagens/logo-3.png" alt="D.Buzz Corporate" />
           </Logo>
           <TextoMarca>
             Comunicação presencial gerenciada para empresas, instituições, anunciantes e órgãos

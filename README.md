@@ -101,7 +101,7 @@ Faça `Ctrl+F` em todo o conteúdo procurando os seguintes termos. Se encontrar,
 
 | ❌ Não usar                       | ✅ Substituir por                                          |
 | --------------------------------- | ---------------------------------------------------------- |
-| _televisores_, _televisão_        | **Displays de LED verticais indoor**                       |
+| _televisores_, _televisão_        | **Telas verticais indoor**                                 |
 | _plataforma_, _software_ (isolado)| **DBuzz Control Signage**                                  |
 | _garante inexigibilidade_         | **fornece documentação de apoio à análise**                |
 | _dispensa licitação_              | (idem acima)                                               |

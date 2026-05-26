@@ -1,112 +1,316 @@
-# Script de Ajustes — Site DBUZZ
-
-Olá Claude Code. Preciso que você aplique os seguintes ajustes no projeto. Antes de começar, faça um levantamento dos arquivos relevantes (componentes do Hero, Sobre Nós, Clientes, Aplicações, Valores, Setor Público e Rodapé) e me mostre um plano de execução resumido. Em seguida, execute na ordem abaixo, commit por ajuste, com mensagens claras em português.
-
----
-
-## 1. Refatorar as telinhas (cards/slides) da seção HERO
-
-**Problema:** As telinhas do Hero estão confusas, sem hierarquia visual e sem mensagem clara.
-
-**O que fazer:**
-- Localize o componente do Hero (provavelmente `Hero.tsx`, `HeroSection.tsx` ou similar).
-- Revise o conteúdo de cada telinha/slide: cada uma deve ter **um único conceito central** comunicado de forma direta (título curto + subtítulo de apoio + CTA quando fizer sentido).
-- Garanta consistência visual entre as telinhas: mesma estrutura de grid, mesma tipografia, mesmo padding, mesma proporção de imagem/texto.
-- Alinhe a mensagem ao posicionamento da DBUZZ (ver item 8 deste documento — "Tela como produto completo").
-- Se houver animação ou carrossel, verifique se o timing está adequado para leitura (mínimo 5s por slide).
-
-**Critério de aceite:** Ao olhar o Hero, deve ficar imediatamente claro o que a DBUZZ entrega.
+# Página DBUZZ Control Signage — v2
+## Briefing + Script para Claude Code (institucional, inspirado na LP do Yeloo Player)
 
 ---
 
-## 2. Substituir "Baixada Fluminense" por "Rio de Janeiro"
+# Parte 1 — Contexto compactado
 
-**O que fazer:**
-- Faça um `grep -ri "Baixada Fluminense"` em todo o projeto (incluindo arquivos `.tsx`, `.ts`, `.json`, `.md`, `.mdx`, conteúdo de CMS local se houver).
-- Substitua **todas** as ocorrências por `Rio de Janeiro`.
-- Atenção para variações com acento, caixa diferente ou abreviações ("Baixada", "B. Fluminense" etc.) — me reporte qualquer ocorrência ambígua antes de trocar.
-- Verifique também `meta tags`, `alt` de imagens, dados estruturados (schema.org) e SEO.
+## O que é o DBUZZ Control Signage
 
----
+Plataforma **proprietária** da D.Buzz para gestão de Displays de LED corporativos. Roda por trás da operação da própria D.Buzz: organiza programação, agenda conteúdo, sincroniza com os displays remotamente e monitora cada tela em tempo real.
 
-## 3. Remover dados institucionais da seção "Sobre Nós"
+## Por que existe
 
-**Contexto:** Os dados institucionais já existem no rodapé. Não é necessário mover nem duplicar — apenas remover da seção Sobre Nós.
+Hoje a D.Buzz depende de plataformas terceirizadas para essa gestão. O Control Signage internaliza esse núcleo da operação sob arquitetura própria, eliminando dependência de fornecedor e dando autonomia total sobre features, dados e roadmap.
 
-**O que fazer:**
-- Identifique e **remova** os dados institucionais da seção Sobre Nós (CNPJ, endereço, telefone, e-mail, razão social, inscrição etc., conforme estiverem presentes).
-- **Não tocar no rodapé** — ele já contém esses dados.
-- A seção Sobre Nós deve focar exclusivamente em narrativa: quem somos, o que fazemos, propósito.
-- Ajuste o layout/espaçamento da seção após a remoção para que não fique um vazio estranho.
+## Arquitetura em 3 camadas
 
----
+1. **Painel Web (React + TypeScript)** — Onde a operação gerencia tudo: upload, agendamento visual, monitoramento em tempo real, relatórios.
+2. **Backend (Node.js + PostgreSQL + AWS S3 + CloudFront)** — API REST com autenticação JWT, lógica de agendamento, storage em nuvem com CDN, logs completos.
+3. **Aplicativo nos Displays (Android TV + Kotlin + ExoPlayer)** — Sincroniza a cada 30s, reproduz em loop 24/7, envia heartbeat a cada 1min reportando status real.
 
-## 4. Reordenar seções: subir "Clientes" para posição de destaque
+## Diferenciais
 
-**O que fazer:**
-- Localize a ordem atual das seções na página inicial (provavelmente em `page.tsx`, `index.tsx` ou arquivo de layout principal).
-- Mova a seção **Clientes** para uma posição mais alta na hierarquia da página — sugestão: logo após o Hero ou após uma primeira seção de proposta de valor curta.
-- Mantenha o restante da ordem coerente. Se quiser, me proponha a nova ordem antes de aplicar.
+- 100% propriedade intelectual da D.Buzz (registrável no INPI)
+- Suporte a 4K, HLS, DASH e MP4
+- Multi-tenant nativo
+- Loop infinito sem memory leaks (operação 24/7 estável)
+- Heartbeat com métricas operacionais reais
+- Integração nativa com outros sistemas próprios da D.Buzz (coletores automatizados)
 
----
+## Onde se encaixa estrategicamente
 
-## 5. Substituir TV horizontal pela TV vertical na seção "Aplicações"
-
-**O que fazer:**
-- Na seção **Aplicações**, localize o asset/componente da TV horizontal (moldura 1).
-- Substitua pela versão vertical (moldura 2).
-- Ajuste o layout ao redor para acomodar a nova proporção (vertical ocupa menos largura e mais altura).
-- Reposicione textos, badges ou elementos adjacentes para que a composição continue equilibrada.
-- Verifique responsividade em mobile, tablet e desktop.
+Pilar de **autonomia tecnológica** do posicionamento institucional da D.Buzz. Reforça os valores declarados de responsabilidade técnica, continuidade operacional, rastreabilidade por evidências e segurança jurídica.
 
 ---
 
-## 6. Padronizar destino dos botões de "Documentação"
+# Parte 2 — Script para Claude Code
 
-**O que fazer:**
-- Encontre **todos** os botões/links cujo texto ou propósito envolva "Documentação", "Documentos", "Saiba mais sobre documentação", "Acessar documentação" etc.
-- Aponte todos eles para a **área de Setor Público** (rota/seção correspondente — confirme a URL exata: provavelmente algo como `/setor-publico` ou `#setor-publico`).
-- Garanta que os botões abram na mesma aba (a menos que já fosse padrão diferente) e que o âncora/scroll funcione corretamente.
+> Copie tudo abaixo desta linha e cole como prompt inicial no Claude Code, dentro da raiz do repositório do site institucional da D.Buzz.
 
 ---
 
-## 7. Renomear Valor 7
+## Tarefa
 
-**O que fazer:**
-- Localize a seção de Valores da empresa.
-- No **Valor 7**, alterar o texto:
-  - **De:** "Segurança jurídica e respeito ao processo público"
-  - **Para:** "Segurança jurídica e LGPD"
-- Se houver descrição/subtítulo desse valor, revise para garantir coerência com o novo título (mencionar LGPD, proteção de dados, conformidade etc.). Se preferir, me mostre o texto atual antes de reescrever a descrição.
+Criar uma **página institucional de produto** chamada **DBUZZ Control Signage** dentro do site da D.Buzz. O objetivo é **apresentar o produto** — não vender SaaS para terceiros. A página explica o que é, como funciona, o que entrega e por que existe, posicionando-o como diferencial tecnológico da D.Buzz.
+
+A página deve seguir a mesma **estrutura editorial** da landing do Yeloo Player (referência: `yeloo.com.br/yeloo-player-lp`), com tom adaptado para institucional B2B: profissional, firme, sem informalidades, sem emojis, sem promessas de "teste grátis". CTAs são institucionais ("Fale com nossa equipe" / "Solicitar apresentação").
+
+## Antes de escrever qualquer código — explore o projeto
+
+Sua primeira ação deve ser entender o que já existe. Não invente estrutura, framework, design tokens ou padrões. Siga rigorosamente o que está no repositório.
+
+Faça nesta ordem:
+
+1. Liste a estrutura raiz do projeto e identifique:
+    - Framework usado (Next.js, Astro, Nuxt, Vite, HTML estático, WordPress, etc.)
+    - Versão e configuração principal (TypeScript? Tailwind? CSS Modules? styled-components?)
+    - Pasta de páginas/rotas (`pages/`, `app/`, `src/pages/`, etc.)
+    - Pasta de componentes reutilizáveis e padrão de nomenclatura
+    - Arquivo de tokens de design (cores, tipografia, espaçamentos, breakpoints)
+    - Como o menu principal e o rodapé são declarados
+    - Padrão de SEO (next/head, Astro layout, etc.)
+    - Padrão de imagens (next/image, picture, img puro, formato preferido)
+
+2. Abra **2 ou 3 páginas existentes** do site e leia o código delas para entender:
+    - Padrão de imports e organização do arquivo
+    - Padrão de seções (hero, blocos, CTAs)
+    - Padrão de classes/estilos
+    - Padrão de responsividade e breakpoints
+    - Padrão de animações (se houver — Framer Motion, GSAP, CSS puro)
+
+3. Antes de criar a página, **me responda em 5–10 linhas** com:
+    - Framework, linguagem e principais bibliotecas identificados
+    - Caminho exato onde a nova página será criada
+    - Componentes existentes que você vai reutilizar (com caminho)
+    - Identidade visual base (paleta, fontes, espaçamento) — em 1 frase
+    - Qualquer ambiguidade que precise da minha confirmação
+
+Só depois da minha confirmação, prossiga para a implementação.
 
 ---
 
-## 8. Refinar conceito da DBUZZ: "Tela como produto completo"
+## Estrutura da página
 
-**Contexto:** O posicionamento da DBUZZ NÃO é "vender uma TV com um TV Box instalado". É entregar a **Tela como um produto completo** — hardware, software, conteúdo, gestão e operação integrados como uma solução única.
+A página deve ter **11 seções**, nesta ordem. Use os componentes/padrões já existentes no site sempre que possível. Só crie componente novo quando não houver equivalente.
 
-**O que fazer:**
-- Revise todos os textos do site que descrevem o produto/serviço (Hero, Sobre, Aplicações, Soluções, Diferenciais).
-- Onde estiver enquadrado como "TV + TV Box" ou similar (linguagem de componentes separados), reescreva para comunicar **entrega integrada de uma solução de tela**.
-- Reforce vocabulário como: solução completa, plataforma integrada, produto end-to-end, tela gerenciada, mídia como serviço (se fizer sentido), etc.
-- Não invente capacidades — apenas reposicione o que já existe.
-- Me mostre as alterações de copy mais relevantes para eu aprovar antes do commit.
+### Seção 1 — Hero
+
+- **Kicker** (texto pequeno, acima do título): `PLATAFORMA PROPRIETÁRIA D.BUZZ`
+- **Headline (H1)**: `Controle total da rede de comunicação presencial. Sob arquitetura própria.`
+- **Subheadline (parágrafo)**: `O DBUZZ Control Signage é a plataforma que opera por trás da rede de Displays de LED da D.Buzz — com agendamento, monitoramento e sincronização automática em escala, sem depender de fornecedores externos de CMS.`
+- **CTA primário**: `Falar com nossa equipe` (link para a página/seção de contato existente)
+- **CTA secundário** (link com âncora, sem botão pesado): `Como funciona →` (anchor para `#como-funciona`)
+- **Visual**: à direita do texto no desktop, abaixo no mobile. Use o arquivo `Diagrama_DBUZZ_CONTROL_SIGNAGE.png` se estiver disponível no repositório. Caso contrário, deixe placeholder com `alt="Arquitetura DBUZZ Control Signage"` e me avise para subir o arquivo.
+
+Layout: duas colunas no desktop (texto à esquerda, visual à direita), uma coluna no mobile (texto em cima).
+
+### Seção 2 — Faixa de números/provas operacionais
+
+Faixa horizontal com 4 cards numéricos. Sem ornamentos, fundo neutro ou com leve contraste em relação à seção anterior.
+
+```
+24/7              ~30 SEGUNDOS         ~1 MINUTO            72 HORAS
+Operação          Sincronização        Heartbeat de         SLA de
+contínua          automática           cada display         recomposição
+                  por display                               crítica
+```
+
+Cada item: número/valor em destaque acima, label curto abaixo. Centralizado no card.
+
+### Seção 3 — O que é
+
+- **Kicker**: `PLATAFORMA`
+- **Headline (H2)**: `Uma plataforma própria para uma operação que não pode parar.`
+- **Texto** (parágrafo único, ~3-4 linhas):
+
+> A D.Buzz opera uma rede de comunicação presencial gerenciada onde cada display precisa estar no ar, com o conteúdo certo, no horário certo, todos os dias. O Control Signage é a plataforma desenvolvida internamente para sustentar essa operação: ela centraliza a programação, distribui o conteúdo, monitora cada tela em tempo real e mantém a rede funcionando de forma estável, rastreável e auditável.
+
+- **CTA inline** (link, não botão pesado): `Solicitar apresentação →`
+
+### Seção 4 — Como funciona (#como-funciona)
+
+- **Kicker**: `COMO FUNCIONA`
+- **Headline (H2)**: `Três camadas integradas. Uma única operação.`
+- **Texto curto introdutório** (2 linhas): `A plataforma é estruturada em três camadas que se comunicam por APIs próprias: o painel onde a operação acontece, o backend que orquestra tudo, e o aplicativo que roda em cada display.`
+
+Logo abaixo do texto, **inserir o diagrama de arquitetura** (`Diagrama_DBUZZ_CONTROL_SIGNAGE.png`). Deve ocupar largura confortável (até 900px no desktop), com legenda discreta abaixo: `Arquitetura DBUZZ Control Signage`.
+
+### Seção 5 — Camada 1: Painel Web (bloco alternado imagem-texto)
+
+Layout: **texto à esquerda, imagem/mockup à direita** no desktop. Empilhado no mobile.
+
+- **Kicker**: `CAMADA 1 — PAINEL WEB`
+- **Headline (H2)**: `Gestão completa em um painel só.`
+- **Parágrafo**: `Construído em React, o painel é onde a equipe da D.Buzz programa a rede inteira. Upload de conteúdo, agendamento visual em calendário, monitoramento de cada display em tempo real e relatórios consolidados — tudo em uma única interface.`
+- **Lista de bullets** (com check ou bullet visual do site):
+    - Upload de mídia (vídeo, imagem, conteúdo institucional)
+    - Agendamento por display, grupo ou rede inteira
+    - Repetição diária, semanal ou customizada
+    - Status ao vivo de cada display (online, offline, último sync)
+    - Gestão de usuários e permissões por nível
+
+- **Placeholder de imagem**: mockup do painel (deixar placeholder com instruções no `alt` se não houver imagem ainda).
+
+### Seção 6 — Camada 2: Backend (bloco alternado, **imagem à esquerda, texto à direita**)
+
+- **Kicker**: `CAMADA 2 — BACKEND PRÓPRIO`
+- **Headline (H2)**: `Infraestrutura robusta, sob nosso controle.`
+- **Parágrafo**: `O backend em Node.js orquestra toda a operação: autenticação, agendamentos, distribuição de conteúdo e comunicação com os displays. Storage em nuvem com CDN garante que o conteúdo chega rápido em qualquer ponto da rede, e cada evento operacional fica registrado para auditoria.`
+- **Lista de bullets**:
+    - API REST documentada com autenticação JWT
+    - Storage em nuvem com AWS S3 + CloudFront CDN
+    - Banco PostgreSQL multi-tenant
+    - Rate limiting e proteção contra abuso
+    - Logs completos de eventos e heartbeats
+    - Backup automático e replicação master-slave
+
+- **Placeholder de imagem**: visualização de logs/dashboard de backend.
+
+### Seção 7 — Camada 3: Aplicativo nos Displays (bloco alternado, **texto à esquerda, imagem à direita**)
+
+- **Kicker**: `CAMADA 3 — APLICATIVO NOS DISPLAYS`
+- **Headline (H2)**: `Reprodução estável, sincronização automática.`
+- **Parágrafo**: `Em cada Display de LED roda um aplicativo Android TV em Kotlin, com player profissional baseado em ExoPlayer. Ele consulta o backend a cada 30 segundos buscando atualizações na programação, e envia heartbeat a cada minuto reportando status real — online, conteúdo em exibição, temperatura. Tudo isso em loop infinito, 24 horas por dia, sem travamentos.`
+- **Lista de bullets**:
+    - Polling otimizado a cada 30 segundos
+    - Heartbeat operacional a cada 1 minuto
+    - Suporte a 4K, HLS, DASH e MP4
+    - Cache local para resiliência (continua exibindo se a internet cair)
+    - Loop 24/7 sem memory leaks
+    - Atualização remota sem necessidade de acesso físico ao display
+
+- **Placeholder de imagem**: foto de um display em operação ou tela do app.
+
+### Seção 8 — Banner CTA intermediário
+
+Bloco de largura total, fundo de destaque (use a cor primária da marca ou um tom escuro contrastante, seguindo o padrão do site).
+
+- **Título grande centralizado**: `O Control Signage opera nos bastidores da rede D.Buzz.`
+- **Subtítulo**: `Quer entender como a tecnologia sustenta nossa operação de comunicação presencial gerenciada?`
+- **Botão**: `Falar com nossa equipe`
+
+### Seção 9 — Recursos e diferenciais (grid)
+
+- **Kicker**: `RECURSOS`
+- **Headline (H2)**: `O que diferencia o Control Signage.`
+
+Grid de **6 cards** (3 colunas no desktop, 2 no tablet, 1 no mobile). Cada card: ícone (use ícones do set já presente no site, ou Lucide/Heroicons se o site usar), título, 1-2 linhas de descrição.
+
+1. **Arquitetura proprietária** — Toda a stack desenvolvida internamente. Sem dependência de fornecedores externos de CMS de signage.
+2. **Sincronização contínua** — Cada display verifica a programação a cada 30 segundos e atualiza sem intervenção manual.
+3. **Monitoramento em tempo real** — Heartbeat operacional minuto a minuto, com métricas reais de cada display.
+4. **Operação 24/7 estável** — Loop infinito sem memory leaks, validado para funcionamento contínuo.
+5. **Multi-tenant nativo** — Isolamento entre operações distintas dentro da mesma plataforma.
+6. **Rastreabilidade por evidências** — Logs completos de cada evento, agendamento e exibição.
+
+### Seção 10 — Onde se aplica
+
+- **Kicker**: `APLICAÇÕES`
+- **Headline (H2)**: `Onde o Control Signage atua.`
+- **Texto curto** (1-2 linhas): `A plataforma sustenta diferentes frentes da operação D.Buzz, do conteúdo institucional à malha publicitária.`
+
+Lista de 4 itens (cards horizontais ou bullets visuais), cada um com ícone e descrição curta:
+
+- **Rede TV D.Buzz** — Sustenta a operação dos Displays de LED verticais da rede própria da D.Buzz em pontos comerciais.
+- **Operações privadas** — Suporta instalações em consultórios, clínicas, hospitais, escolas e ambientes corporativos.
+- **Operações em órgãos públicos** — Atende contratações específicas no setor público com a mesma infraestrutura de gestão.
+- **Anunciantes da malha D.Buzz** — Distribuição controlada de campanhas publicitárias na rede gerenciada.
+
+### Seção 11 — Perguntas frequentes (FAQ)
+
+- **Kicker**: `DÚVIDAS FREQUENTES`
+- **Headline (H2)**: `O que costuma ser perguntado sobre o Control Signage.`
+
+Componente de accordion (use o já existente no site, se houver). 7 perguntas:
+
+1. **O Control Signage é vendido como SaaS para terceiros?**
+   Não. É uma plataforma proprietária da D.Buzz, desenvolvida para sustentar a operação interna da empresa e de seus contratos. Eventuais licenciamentos para terceiros são tratados caso a caso.
+
+2. **Como o sistema garante que o display sempre está atualizado?**
+   Cada display consulta o backend a cada 30 segundos comparando a versão da programação local com a do servidor. Quando há mudança, baixa o novo conteúdo e atualiza a fila do player sem interromper a exibição em andamento.
+
+3. **O que acontece se a internet do display cair?**
+   O aplicativo mantém em cache local o conteúdo da programação atual e continua reproduzindo normalmente. Quando a conexão volta, ele sincroniza com o backend e atualiza se houver mudanças.
+
+4. **Como é o monitoramento de cada display?**
+   Cada display envia um heartbeat ao backend a cada 1 minuto reportando status (online/offline), conteúdo em exibição no momento, temperatura do equipamento e último sync. Esses dados ficam disponíveis no painel em tempo real e são armazenados como histórico.
+
+5. **O sistema suporta qual tipo de conteúdo?**
+   Vídeo (MP4, HLS, DASH) com suporte a 4K, e imagens estáticas. O player é baseado em ExoPlayer, padrão profissional para reprodução em Android TV.
+
+6. **Como a propriedade intelectual do sistema é protegida?**
+   Toda a stack — painel, backend e aplicativo — é de propriedade da D.Buzz, com documentação técnica completa e código próprio. O projeto é registrável no INPI como software.
+
+7. **O Control Signage se integra com outros sistemas da D.Buzz?**
+   Sim. Foi desenhado para conectar nativamente com os demais sistemas próprios em desenvolvimento — incluindo os coletores automatizados de conteúdo (notícias, clipes esportivos) — permitindo um pipeline operacional integrado de ponta a ponta.
+
+### Seção 12 — CTA final
+
+Bloco de fechamento da página, antes do rodapé.
+
+- **Headline (H2)**: `Conheça o Control Signage de perto.`
+- **Subtítulo**: `Agende uma apresentação com nossa equipe e veja como a plataforma sustenta a operação D.Buzz.`
+- **Botão primário**: `Falar com nossa equipe`
+- **Linha de apoio abaixo do botão** (texto pequeno): `Resposta em até 1 dia útil.`
 
 ---
 
-## Ordem de execução sugerida
+## Requisitos técnicos
 
-1. Itens 2 e 7 (rápidos, baixo risco) — commits separados.
-2. Item 3 (mover dados para rodapé).
-3. Item 6 (padronizar botões).
-4. Item 4 (reordenar seções).
-5. Item 5 (trocar TV).
-6. Item 8 (revisão de copy de posicionamento).
-7. Item 1 (refazer telinhas do Hero) — por último, pois depende do item 8.
+- **Responsivo**: mobile (≤ 380px), tablet, desktop. Testar com Chrome DevTools.
+- **SEO**:
+    - Title: `DBUZZ Control Signage — Plataforma proprietária de gestão de displays | D.Buzz`
+    - Meta description: `Plataforma própria da D.Buzz para gestão de Displays de LED corporativos: agendamento, monitoramento em tempo real e sincronização automática, sob arquitetura proprietária.`
+    - Open Graph com imagem (pode usar o diagrama)
+    - URL sugerida: `/control-signage` ou `/produtos/control-signage`, seguindo o padrão de URLs do site
+- **Acessibilidade**:
+    - Um único `<h1>` (o headline do hero)
+    - Hierarquia limpa de `h2`/`h3`
+    - `alt` em todas as imagens
+    - Contraste WCAG AA em textos
+    - Foco visível em links e botões
+    - Accordion da FAQ acessível por teclado
+- **Performance**:
+    - Imagens otimizadas (WebP/AVIF se o site usar)
+    - Lazy loading em imagens fora do hero
+    - Sem bibliotecas pesadas só pra esta página
+    - Lighthouse: performance, acessibilidade, SEO e best practices ≥ 90 em desktop
+- **Navegação**:
+    - Adicionar link no menu principal (sob "Produtos" ou "Soluções", se houver — caso contrário, no nível principal)
+    - Adicionar link no rodapé na seção de produtos/soluções (se existir)
 
-## Regras gerais
+## Tom e estilo
 
-- Um commit por ajuste, mensagem em português no formato: `ajuste: <descrição curta>`.
-- Rode o lint/typecheck após cada alteração estrutural.
-- Se encontrar ambiguidade em qualquer item, **pergunte antes de decidir**.
-- Ao terminar, gere um resumo do que foi alterado, com lista de arquivos tocados.
+- **Profissional, firme, direto.** Sem emojis. Sem informalidades ("perfeitinho", "bora", "💜").
+- **Sem promessas comerciais agressivas.** Não use "teste grátis", "experimente agora", "garanta já". Use CTAs institucionais.
+- **Sem hipérboles.** Não use "revolucionário", "incrível", "único no mercado".
+- **Voz da D.Buzz**: técnica mas legível, com peso institucional. Frases curtas. Verbos no presente.
+- **Visual**: alinhado ao site institucional existente. Não introduza paleta nova nem fonte nova.
+
+## O que NÃO fazer
+
+- Não troque o framework do site
+- Não introduza biblioteca de UI nova se já existe uma sendo usada
+- Não invente tokens de cor/tipografia
+- Não invente funcionalidades não listadas aqui
+- Não use linguagem comercial de SaaS (este é um produto interno apresentado institucionalmente)
+- Não publique direto em produção se o site usa branch de produção — abra como branch/PR ou avise antes
+
+## Critérios de aceite
+
+A entrega está pronta quando:
+
+1. A página renderiza sem erros em build de produção
+2. Aparece no menu principal e no rodapé (se aplicável)
+3. Responsivo validado em mobile (≤ 380px), tablet e desktop
+4. SEO básico está preenchido (title, description, OG)
+5. Todas as 12 seções estão presentes, na ordem correta
+6. O diagrama da arquitetura está presente na Seção 4 (ou marcado como placeholder com aviso)
+7. CTAs apontam para a página/rota de contato existente do site
+8. FAQ usa accordion acessível por teclado
+9. Lighthouse desktop: ≥ 90 em todas as categorias principais
+
+## Entrega final
+    
+Quando terminar, me mostre:
+
+1. Caminho do arquivo da nova página e arquivos modificados
+2. Comando para rodar o site localmente
+3. Screenshots ou descrição do resultado em desktop e mobile
+4. Resultados do Lighthouse
+5. Pendências que dependem de mim (subir diagrama, mockups do painel, decidir cor exata do banner CTA, etc.)
+
+---
+
+**Fim do prompt para Claude Code.**

@@ -94,7 +94,7 @@ const Hero = () => {
               href="#tv-dbuzz"
               onClick={(e) => { e.preventDefault(); scrollTo("tv-dbuzz"); }}
             >
-              <span />TV D.Buzz<br /><em>50+ Displays de LED em locais comerciais</em>
+              <span />TV D.Buzz<br /><em>50+ Telas em locais comerciais</em>
             </Frente>
           </Frentes>
 

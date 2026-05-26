@@ -19,7 +19,7 @@ const TvDbuzz = () => (
         <div>
           <S.Sub>
             A TV D.Buzz é a rede comercial privada que opera em pontos
-            estratégicos do Rio de Janeiro através de Displays de LED
+            estratégicos do Rio de Janeiro através de Telas
             verticais indoor. Conteúdo de variedade e oportunidades comerciais
             para anunciantes locais que querem alcançar público em ambientes
             de alta circulação — tudo coordenado pelo DBuzz Control Signage.
@@ -28,7 +28,7 @@ const TvDbuzz = () => (
           <S.Stats>
             <S.Stat>
               <S.StatN>50+</S.StatN>
-              <S.StatL>Displays de LED ativos</S.StatL>
+              <S.StatL>Telas ativos</S.StatL>
             </S.Stat>
             <S.Stat>
               <S.StatN>2</S.StatN>

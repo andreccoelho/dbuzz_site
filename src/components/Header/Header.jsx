@@ -40,7 +40,7 @@ const Header = () => {
           onClick={(e) => { e.preventDefault(); scrollTo("inicio"); fechar(); }}
           aria-label="D.Buzz Corporate — Início"
         >
-          <img src="/imagens/logo-1.png" alt="D.Buzz Corporate" />
+          <img src="/imagens/logo-3.png" alt="D.Buzz Corporate" />
         </LogoLink>
 
         <MenuLista $aberto={aberto}>

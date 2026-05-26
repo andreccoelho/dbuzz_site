@@ -1,7 +1,7 @@
 import { Moldura, Tela, BarraStatus, EquilibradoBuzz, Conteudo, Selo, Pe } from "./Style";
 
 /**
- * Mockup de Display de LED vertical 9:16 — elemento visual principal da identidade D.Buzz.
+ * Mockup de Tela vertical 9:16 — elemento visual principal da identidade D.Buzz.
  * O briefing v2 e a Orientação ScreenCloud reforçam que telas verticais sao a linguagem
  * obrigatoria do site; horizontais (estilo software de signage generico) estao proibidas.
  *

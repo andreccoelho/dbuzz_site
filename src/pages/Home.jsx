@@ -22,8 +22,8 @@ const Home = () => (
     <main>
       <Hero />
       <Gancho />
-      <Clientes />
       <Sobre />
+      <Clientes />
       <Solucoes />
       <TiposConteudo />
       <Aplicacoes />

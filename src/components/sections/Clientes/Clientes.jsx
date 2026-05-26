@@ -58,10 +58,6 @@ const Track = styled.div`
   display: flex;
   width: max-content;
   animation: dbuzz-slide 32s linear infinite;
-
-  &:hover {
-    animation-play-state: paused;
-  }
 `;
 
 const LogoItem = styled.div`
@@ -72,7 +68,7 @@ const LogoItem = styled.div`
   flex-shrink: 0;
 
   img {
-    height: 42px;
+    height: 75px;
     width: auto;
     max-width: 140px;
     object-fit: contain;

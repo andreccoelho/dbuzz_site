@@ -25,7 +25,7 @@ const CASES = [
     badge: "Privado",
     badgeTipo: "priv",
     titulo: "Saúde Digital — clínica multiespecialidade",
-    desc: "Operação contínua com Displays de LED verticais indoor e calendário editorial com foco em educação em saúde, prevenção e fluxo de atendimento.",
+    desc: "Operação contínua com Telas verticais indoor e calendário editorial com foco em educação em saúde, prevenção e fluxo de atendimento.",
     tags: ["Saúde", "Indoor", "Editorial"],
   },
   {
@@ -61,7 +61,7 @@ const CASES = [
     badge: "TV D.Buzz",
     badgeTipo: "tv",
     titulo: "TV D.Buzz — rede comercial Rio de Janeiro",
-    desc: "Operação contínua da rede comercial privada com 50+ Displays de LED verticais indoor distribuídos em pontos de alta circulação em dois mercados.",
+    desc: "Operação contínua da rede comercial privada com 50+ Telas verticais indoor distribuídos em pontos de alta circulação em dois mercados.",
     tags: ["TV D.Buzz", "Rede", "Rio de Janeiro"],
   },
   {

@@ -124,6 +124,14 @@ const CardTopo = styled.div`
   }
 `;
 
+const TituloCard = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+`
+
+
 const IconeBox = styled.div`
   display: inline-flex;
   align-items: center;
@@ -219,6 +227,6 @@ const CardLink = styled.a`
 `;
 
 export {
-  Secao, Container, Cabecalho, Kicker, Titulo, Lead, Grid, Card, CardTopo,
+  Secao, Container, Cabecalho, Kicker, Titulo, Lead, Grid, Card, CardTopo, TituloCard,
   IconeBox, Subtitulo, CardCorpo, Lista, ItemLista, CardLink,
 };

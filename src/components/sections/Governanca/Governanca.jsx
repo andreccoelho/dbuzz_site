@@ -6,7 +6,7 @@ const GOV = [
   "Termos de uso e contrato padrão de prestação de serviços",
   "Política de conteúdo: filtros editoriais e moderação",
   "Política de anúncios: critérios para aprovação na TV D.Buzz",
-  "Manual técnico de operação dos Displays de LED",
+  "Manual técnico de operação das Telas",
   "Procedimento de manutenção preventiva e corretiva",
   "Plano de continuidade operacional",
   "Política de segurança da informação",

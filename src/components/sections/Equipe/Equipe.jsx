@@ -22,7 +22,7 @@ const EQUIPE = [
     Avatar: Wrench,
     nome: "Operação técnica",
     cargo: "Infraestrutura e suporte",
-    desc: "Instalação, manutenção preventiva e corretiva, monitoramento do parque de Displays de LED.",
+    desc: "Instalação, manutenção preventiva e corretiva, monitoramento do parque de Telas.",
   },
   {
     Avatar: Briefcase,

@@ -1,7 +1,7 @@
 import { Briefcase, Landmark, Tv, ArrowRight } from "lucide-react";
 import { scrollTo } from "../../../utils/scroll";
 import {
-  Secao, Container, Cabecalho, Kicker, Titulo, Lead, Grid, Card, CardTopo,
+  Secao, Container, Cabecalho, Kicker, Titulo, Lead, Grid, Card, CardTopo, TituloCard,
   CardCorpo, IconeBox, Subtitulo, Lista, ItemLista, CardLink,
 } from "./Style";
 
@@ -46,9 +46,9 @@ const frentes = [
     titulo: "TV D.Buzz",
     subtitulo: "Rede própria de mídia indoor",
     descricao:
-      "Rede própria de comunicação presencial em locais comerciais privados. Mais de 50 Displays de LED verticais indoor com programação em looping de aproximadamente 15 minutos.",
+      "Rede própria de comunicação presencial em locais comerciais privados. Mais de 50 Telas verticais indoor com programação em looping de aproximadamente 15 minutos.",
     itens: [
-      "50+ Displays de LED verticais indoor",
+      "50+ Telas verticais indoor",
       "Looping de ~15 minutos",
       "Públicos presenciais reais",
       "Espaços publicitários para anunciantes",
@@ -77,16 +77,17 @@ const Solucoes = () => (
           return (
             <Card key={f.titulo} $cor={f.cor}>
               <CardTopo $cor={f.cor}>
-                <IconeBox $cor={f.cor}>
-                  <Icone size={22} />
-                </IconeBox>
-                <span className="kicker-frente">Frente</span>
-                <h3>{f.titulo}</h3>
+                <TituloCard>
+                  <IconeBox $cor={f.cor}>
+                    <Icone size={22}/>
+                  </IconeBox>
+                  <h3>{f.titulo}</h3>
+                </TituloCard>
                 <Subtitulo>{f.subtitulo}</Subtitulo>
               </CardTopo>
 
               <CardCorpo>
-                <p>{f.descricao}</p>
+              <p>{f.descricao}</p>
 
                 <Lista>
                   {f.itens.map((it) => (

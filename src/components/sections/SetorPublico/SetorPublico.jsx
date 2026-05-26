@@ -12,7 +12,7 @@ const COMPONENTES = [
     tipo: "Componente Secundário",
     tipoClasse: "s",
     titulo: "Disponibilização de Infraestrutura Tecnológica",
-    desc: "Displays de LED verticais indoor, sistemas de gestão remota (DBuzz Control Signage) e infraestrutura de rede dedicada à operação.",
+    desc: "Telas verticais indoor, sistemas de gestão remota (DBuzz Control Signage) e infraestrutura de rede dedicada à operação.",
   },
   {
     tipo: "Componente Terciário",
@@ -23,7 +23,7 @@ const COMPONENTES = [
 ];
 
 const KIT = [
-  "Displays de LED verticais indoor",
+  "Telas verticais indoor",
   "Players multimídia dedicados",
   "Suportes e fixação adequada ao ambiente",
   "Cabeamento de dados e elétrico",

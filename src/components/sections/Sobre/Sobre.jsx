@@ -39,7 +39,7 @@ const Sobre = () => (
           </Paragrafo>
 
           <Paragrafo>
-            A entrega da D.Buzz não se limita à instalação de Displays de LED, ao fornecimento de
+            A entrega da D.Buzz não se limita à instalação de Telas, ao fornecimento de
             equipamentos, à disponibilização de software ou à exibição de arquivos digitais. A
             solução é estruturada para que conteúdo, operação técnica, gestão remota, grade de
             programação, infraestrutura, suporte e acompanhamento funcionem de maneira coordenada e

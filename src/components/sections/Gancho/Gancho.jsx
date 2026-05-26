@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 
 const METRICAS = [
-  { num: 50,  pre: "",  suf: "+",        label: "Displays de LED verticais indoor em operação" },
+  { num: 50,  pre: "",  suf: "+",        label: "Telas verticais indoor em operação" },
   { num: 15,  pre: "",  suf: " minutos", label: "Looping médio de programação da TV D.Buzz" },
   { num: 72,  pre: "",  suf: "h",        label: "Prazo de recomposição operacional crítica" },
   { num: 2,   pre: "",  suf: "",         label: "Mercados — setor privado e setor público" },
