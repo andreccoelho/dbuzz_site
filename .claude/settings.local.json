@@ -10,7 +10,8 @@
       "WebSearch",
       "WebFetch(domain:www.instagram.com)",
       "Bash(git -C \"C:\\\\Users\\\\André Costa\\\\dbuzz_site\" show HEAD:src/components/Header/Header.jsx)",
-      "Bash(git *)"
+      "Bash(git *)",
+      "Bash(npm install *)"
     ]
   }
 }

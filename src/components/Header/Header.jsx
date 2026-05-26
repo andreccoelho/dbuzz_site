@@ -1,23 +1,28 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { Nav, Container, LogoLink, MenuLista, ItemMenu, BotaoCta, MenuMobile, Backdrop } from "./Style";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Menu, X, ArrowRight } from "lucide-react";
+import {
+  Nav, Container, LogoLink, MenuLista, ItemMenu, BotaoCta, MenuMobile, Backdrop,
+  EmBreveSecao, EmBreveTitulo, EmBreveLink,
+} from "./Style";
 import { scrollTo } from "../../utils/scroll";
 
 const links = [
-  { id: "sobre",        label: "Sobre" },
-  { id: "solucoes",     label: "Soluções" },
-  { id: "aplicacoes",   label: "Aplicações" },
-  { id: "setor-publico",label: "Setor Público" },
-  { id: "tv-dbuzz",     label: "TV D.Buzz" },
-  { id: "portfolio",    label: "Portfólio" },
-  { id: "governanca",   label: "Governança" },
-  { id: "equipe",       label: "Equipe" },
+  { id: "sobre",         label: "Sobre" },
+  { id: "solucoes",      label: "Soluções" },
+  { id: "aplicacoes",    label: "Aplicações" },
+  { id: "setor-publico", label: "Setor Público" },
+  { id: "tv-dbuzz",      label: "TV D.Buzz" },
+  { id: "portfolio",     label: "Portfólio" },
+  { id: "governanca",    label: "Governança" },
+  { id: "equipe",        label: "Equipe" },
 ];
-
 
 const Header = () => {
   const [aberto, setAberto] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 82);
@@ -28,8 +33,17 @@ const Header = () => {
   const fechar = () => setAberto(false);
 
   const handleLink = (id) => {
-    scrollTo(id);
+    if (pathname !== "/") {
+      navigate("/", { state: { scrollTo: id } });
+    } else {
+      scrollTo(id);
+    }
     fechar();
+  };
+
+  const handleCta = (e) => {
+    e.preventDefault();
+    handleLink("contato");
   };
 
   return (
@@ -37,7 +51,7 @@ const Header = () => {
       <Container>
         <LogoLink
           href="#"
-          onClick={(e) => { e.preventDefault(); scrollTo("inicio"); fechar(); }}
+          onClick={(e) => { e.preventDefault(); handleLink("inicio"); }}
           aria-label="D.Buzz Corporate — Início"
         >
           <img src="/imagens/logo-3.png" alt="D.Buzz Corporate" />
@@ -54,11 +68,18 @@ const Header = () => {
               </a>
             </ItemMenu>
           ))}
+
+          <EmBreveSecao>
+            <EmBreveTitulo>Em breve</EmBreveTitulo>
+            <EmBreveLink href="/#/control-signage" onClick={fechar}>
+              DBUZZ Control Signage <ArrowRight size={14} aria-hidden="true" />
+            </EmBreveLink>
+          </EmBreveSecao>
         </MenuLista>
 
         <BotaoCta
           href="#contato"
-          onClick={(e) => { e.preventDefault(); handleLink("contato"); }}
+          onClick={handleCta}
         >
           Fale conosco
         </BotaoCta>

@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { scrollTo } from "../utils/scroll";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Hero from "../components/sections/Hero/Hero";
@@ -16,7 +19,17 @@ import CTAEspecialista from "../components/sections/CTAEspecialista/CTAEspeciali
 import Contato from "../components/sections/Contato/Contato";
 import CookieBanner from "../components/ui/CookieBanner/CookieBanner";
 
-const Home = () => (
+const Home = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const timer = setTimeout(() => scrollTo(location.state.scrollTo), 120);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  return (
   <>
     <Header />
     <main>
@@ -38,6 +51,7 @@ const Home = () => (
     <Footer />
     <CookieBanner />
   </>
-);
+  );
+};
 
 export default Home;

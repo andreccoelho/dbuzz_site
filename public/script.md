@@ -303,6 +303,7 @@ A entrega está pronta quando:
 
 ## Entrega final
     
+
 Quando terminar, me mostre:
 
 1. Caminho do arquivo da nova página e arquivos modificados
