@@ -86,6 +86,16 @@ const Footer = () => {
         </span>
         <span>© {ano} D.Buzz Corporate. Todos os direitos reservados.</span>
         <LinkPrivacidade to="/privacidade">Política de Privacidade</LinkPrivacidade>
+        <span>
+          Desenvolvido por{" "}
+          <a
+            href="https://www.andrecostadev.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            André Costa
+          </a>
+        </span>
         <BotaoTopo
           href="#inicio"
           onClick={(e) => { e.preventDefault(); scrollTo("inicio"); }}

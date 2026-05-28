@@ -116,6 +116,18 @@ const Inferior = styled.div`
     font-family: var(--fonte-mono);
   }
 
+  a {
+    color: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+    padding-bottom: 1px;
+    transition: color 160ms ease, border-color 160ms ease;
+
+    &:hover {
+      color: var(--amarelo);
+      border-color: var(--amarelo);
+    }
+  }
+
   @media (max-width: 700px) {
     flex-direction: column;
     align-items: flex-start;
