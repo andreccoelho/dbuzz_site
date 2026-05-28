@@ -66,18 +66,6 @@ const SetorPublico = () => (
           </S.Comp>
         ))}
       </S.CompG>
-
-      <S.Cautela>
-        <strong>Nota de cautela jurídica.</strong> A D.Buzz Corporate{" "}
-        <strong>não declara</strong> e <strong>não garante</strong>{" "}
-        inexigibilidade ou dispensa de licitação. A análise quanto ao
-        enquadramento legal da contratação é de competência exclusiva da
-        assessoria jurídica e dos órgãos de controle do contratante. Cabe à
-        D.Buzz fornecer a documentação técnica de apoio à análise — descrição
-        do objeto, especificações dos componentes, comprovação de qualificação
-        técnica e demais documentos solicitados.
-      </S.Cautela>
-
       <S.KitTitulo>Kit Técnico Padrão (14 itens)</S.KitTitulo>
       <S.KitG>
         {KIT.map((item, i) => (

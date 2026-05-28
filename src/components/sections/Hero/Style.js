@@ -21,15 +21,21 @@ const bounce = keyframes`
 `;
 
 
+const ripple = keyframes`
+  0%   { transform: translate(-50%, -50%) scale(0.3); opacity: 0.65; }
+  100% { transform: translate(-50%, -50%) scale(4);   opacity: 0; }
+`;
+
+
 const Secao = styled.section`
   position: relative;
   background: #000;
   color: #fff;
-  padding: 120px 24px 100px;
+  padding: 175px 24px 0px;
   overflow: hidden;
 
-  @media (max-width: 900px) { padding: 100px 20px 80px; }
-  @media (max-width: 640px) { padding: 88px 16px 64px; }
+  @media (max-width: 900px) { padding: 120px 20px 0px; }
+  @media (max-width: 640px) { padding: 120px 16px 0px; }
 `;
 
 const GridDecorativo = styled.div`
@@ -52,7 +58,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 64px;
-  align-items: center;
+  align-items: stretch;
 
   @media (max-width: 1100px) {
     grid-template-columns: 1fr;
@@ -61,9 +67,12 @@ const Grid = styled.div`
 `;
 
 const Coluna = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
   max-width: 640px;
 
-  @media (max-width: 1100px) { max-width: 100%; }
+  @media (max-width: 1100px) { max-width: 100%; gap: 0}
 `;
 
 const Kicker = styled.div`
@@ -345,6 +354,62 @@ const Metrica = styled.div`
   }
 `;
 
+const MascoteWrap = styled.div`
+  position: relative;
+  overflow: visible;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  animation: ${fadeEntrada} 0.8s ease both 200ms;
+
+  img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    filter:
+      drop-shadow(0 24px 48px rgba(254,199,8,0.22))
+      drop-shadow(0 4px 16px rgba(0,0,0,0.55));
+  }
+
+  @media (max-width: 1100px) {
+    align-items: center;
+    img {
+      max-width: 380px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    img { max-width: 260px; }
+  }
+`;
+
+const Ripples = styled.div`
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  span {
+    position: absolute;
+    width: 340px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(254,199,8,0.5);
+    animation: ${ripple} 3.6s ease-out infinite;
+  }
+
+  span:nth-child(2) { animation-delay: 0.9s; }
+  span:nth-child(3) { animation-delay: 1.8s; }
+  span:nth-child(4) { animation-delay: 2.7s; }
+
+  @media (max-width: 1100px) { display: none; }
+`;
+
 const Mockups = styled.div`
   position: relative;
   display: flex;
@@ -460,5 +525,5 @@ const ScrollSeta = styled.a`
 export {
   Secao, Grid, GridDecorativo, Coluna, Kicker, Titulo, AcentoAmarelo, Texto,
   Frentes, Frente, Acoes, BotaoPrimario, BotaoSecundario, LinksSecundarios,
-  Metricas, Metrica, Mockups, ScrollSeta, PhoneDots, PhoneDot,
+  Metricas, Metrica, MascoteWrap, Ripples, Mockups, ScrollSeta, PhoneDots, PhoneDot,
 };

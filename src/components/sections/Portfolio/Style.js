@@ -174,6 +174,7 @@ export const Track = styled.div`
 `;
 
 export const LogoItem = styled.div`
+  position: relative;
   flex-shrink: 0;
   padding: 0 40px;
   display: flex;
@@ -186,11 +187,23 @@ export const LogoItem = styled.div`
     height: auto;
     max-height: 46px;
     max-width: 130px;
-    filter: grayscale(1) opacity(0.5);
-    transition: filter 0.25s;
+    transition: opacity 0.25s;
   }
 
-  &:hover img {
-    filter: grayscale(0) opacity(1);
+  .logo-bw {
+    opacity: 1;
+  }
+
+  .logo-color {
+    position: absolute;
+    opacity: 0;
+  }
+
+  &:hover .logo-bw {
+    opacity: 0;
+  }
+
+  &:hover .logo-color {
+    opacity: 1;
   }
 `;

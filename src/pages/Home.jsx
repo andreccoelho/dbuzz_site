@@ -37,7 +37,6 @@ const Home = () => {
       <Gancho />
       <Sobre />
       <Clientes />
-      <Solucoes />
       <TiposConteudo />
       <Aplicacoes />
       <SetorPublico />
